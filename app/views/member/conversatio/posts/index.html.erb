@@ -1,0 +1,17 @@
+<h2>Posts: <%= @blog.title %> <%= link_to "Create New post",  new_member_conversatio_blog_post_url(@blog), {:class => "create button", :title => "Create a new post"} %></h2>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Status</th>
+    <th>Comments</th>
+    <th>Created at</th>
+  </tr>
+  <% for post in @posts %>
+  <tr<%= cycle('',' class="even"') -%>>
+    <td><%= link_to post.title, edit_member_conversatio_blog_post_path(@blog, post) %></td>
+    <td><%= post.state %></td>
+    <td><%= link_to "##{post.comments.size}", member_conversatio_blog_post_path(@blog, post) %></td>
+    <td><%= post.created_at %></td>
+  </tr>
+  <% end %>
+</table>

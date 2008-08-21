@@ -1,0 +1,12 @@
+<h1><%= @blog.title -%></h1>
+
+<div id="post_<%= @post.id %>" class="border_top">
+
+  <h2><%= sanitize textilize(@post.title) %></h2>
+  <div>Posted <%= time_ago_in_words @post.created_at %></div>
+  <%= render :partial => 'tags', :locals => { :post => @post } %>
+  <div><%= sanitize textilize(@post.body) %></div>
+
+  <%= render :partial => 'comments_form', :locals => { :post => @post } %>
+
+</div>

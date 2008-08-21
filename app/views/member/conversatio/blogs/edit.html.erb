@@ -1,0 +1,17 @@
+<%= error_messages_for :blog %>
+
+<h2>Edit blog</h2>
+
+<% form_for :blog, :url => member_conversatio_blog_path, :html => {:id => "settings", :method => "put"} do |f| -%>
+  <fieldset>
+
+    <fieldset id="post-details">
+      <legend>Blog details</legend>
+      <label>Title <%= f.text_field :title, {:size => nil} %></label>
+      <label>Description <%= f.text_area :description, {:size => nil} %></label>
+    </fieldset>
+
+    <%= submit_tag 'Update blog', {:accesskey => "s"} %>
+
+  </fieldset>
+<% end -%>

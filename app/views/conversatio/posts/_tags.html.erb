@@ -1,0 +1,10 @@
+<span class="fontsmaller">
+    Etiquetas:
+    <%- if !post.tags.blank? -%>
+      <%- for tag in post.tags -%>
+       <%= link_to tag, tag_conversatio_blog_posts_path(post.blog, tag.name) %>,
+      <%- end -%>
+    <%- else -%>
+       No hay etiquetas
+    <%- end -%> 
+</span>

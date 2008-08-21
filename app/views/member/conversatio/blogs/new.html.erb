@@ -1,0 +1,20 @@
+<%
+#locals
+blog ||= @blog
+%>
+
+<%= error_messages_for :blog %>
+<% form_for :blog, :url => member_conversatio_blogs_path, :html => {:id => "settings", :method => "post"} do |f| -%>
+  <h2>Create blog</h2>
+  <fieldset>
+
+    <fieldset id="post-details">
+      <legend>Blog details</legend>
+      <label>Title <%= f.text_field :title, {:size => nil} %></label>
+      <label>Description <%= f.text_area :description, {:size => nil} %></label>
+    </fieldset>
+
+    <%= submit_tag 'Create blog', {:accesskey => "s"} %>
+
+  </fieldset>
+<% end -%>

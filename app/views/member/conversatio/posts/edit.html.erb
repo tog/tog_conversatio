@@ -1,0 +1,22 @@
+<%= error_messages_for :post %>
+<% form_for :post, :url => member_conversatio_blog_post_path(@blog, @post), :html => {:id => "entry", :method => "put"} do |f| -%>
+  <h2>Update post in <%= @blog.title %></h2>
+  <fieldset>
+    <fieldset>
+      <fieldset>
+        <legend>Metadata</legend>
+        <label>Tags (separated with ,)<%= f.text_field :tag_list, {:size => nil} -%></label>
+        <label>
+          <%= "Status"[:status] %>
+          <%= select_tag "state", options_for_select(Conversatio::Post.states.inject({}) {|s,e| s[e.to_s[e]]=e; s}, @post.new_record? ? :draft : @post.current_state) %>
+        </label>
+      </fieldset>
+    </fieldset>   
+      
+    <label>Title <%= f.text_field :title, {:size => nil} %></label>
+    <label>Body <%= f.text_area :body, {:size => nil} %></label>
+    
+    <%= submit_tag 'Update post', {:accesskey => "s"} %>
+    
+  </fieldset>
+<% end -%>

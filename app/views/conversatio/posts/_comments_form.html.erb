@@ -1,0 +1,26 @@
+<div id="<%= dom_id(@post) %>_comment_div" class="comments">
+  <div id="<%= dom_id(@post) %>_comments">
+    <% @post.comments.each do |c| %>
+      <div >
+        <div class="date_details_white">
+          <%= time_ago_in_words c.created_at %> ago, <%= c.user.login -%> wrote:
+        </div>
+        <div class="comment_message jstruncate">
+          <%= sanitize(textilize(c.comment)) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div id="<%= dom_id(@blog) %>_new_comment">
+  <% form_for :comment, :url => comment_path, :html => {:id => "f_edit2"} do |f| -%>
+    <%= f.hidden_field :commentable_type, {:value => @post.class.name} -%>
+    <%= f.hidden_field :commentable_id, {:value => @post.id} -%>
+    <%= f.text_area :comment %>
+    <div class="row button">
+      <%= f.submit 'Add Comment', :class=>'button' %>
+      <div class="clear"></div>
+    </div>
+  <% end %>
+</div>

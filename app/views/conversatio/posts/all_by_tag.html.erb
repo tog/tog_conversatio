@@ -1,0 +1,18 @@
+<h1>Posts with <%= @tag.name -%> tag</h1>
+
+<% if @posts.blank? || @posts.empty? %>
+  has no blog posts with selected tag.
+<% else %>
+  <% @posts.each do |post| %>
+    <div id="post_<%= post.id %>" class="border_top">
+      <h2><%= link_to "#{sanitize textilize(post.title)}", conversatio_blog_post_path(post.blog, post), :title => "#{sanitize (post.title)}" %></h2>
+      <div>Posted <%= time_ago_in_words post.created_at %> in <%= link_to "#{sanitize (post.blog.title)}", conversatio_blog_path(post.blog), :title => "#{sanitize (post.blog.title)}"%></div>
+      <%= render :partial => 'tags', :locals => { :post => post } %>
+
+      <div><%= sanitize textilize(post.body) %></div>
+      <div id="border_top">
+        <%= "Comments (#{post.comments.size})" %> | <%= link_to 'Add a Comment', conversatio_blog_post_path(@blog, post), :title => "Leaving A Comment On #{h post.title}" %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
