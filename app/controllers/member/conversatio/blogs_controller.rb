@@ -1,6 +1,4 @@
 class Member::Conversatio::BlogsController < Member::BaseController
-
-  layout "member"
   
   def index
     @blogs = current_user.blogs

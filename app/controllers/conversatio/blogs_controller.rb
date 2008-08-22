@@ -1,7 +1,5 @@
 class Conversatio::BlogsController < ApplicationController
 
-  layout "site"
-
   def index
     @order = params[:order] || 'title'
     @page = params[:page] || '1'
