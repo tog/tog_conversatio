@@ -1,5 +1,7 @@
 class Conversatio::PostsController < ApplicationController
 
+  layout "site"
+
   def show
     @blog = Conversatio::Blog.find params[:blog_id]
     @post = @blog.published_posts.find params[:id]

@@ -1,6 +1,8 @@
 class Member::Conversatio::PostsController < Member::BaseController
   before_filter :load_blog
 
+  layout "member"
+
   def index
     @posts = @blog.last_posts
   end
