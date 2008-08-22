@@ -1,5 +1,5 @@
 module Conversatio
-  module BaseHelper
+  module BlogsHelper
 
     def archives_menu
       html = "<ul>"
