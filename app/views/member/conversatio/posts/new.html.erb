@@ -9,7 +9,7 @@
         <label>Tags (separated with ,)<%= f.text_field :tag_list, {:size => nil} -%></label>
         <label>
           <%= "Status"[:status] %>
-          <%= select_tag "state", options_for_select(Conversatio::Post.states {|s,e| s[e.to_s[e]]=e; s}, :draft) %>
+          <%= select_tag "state", options_for_select(Conversatio::Post.states, :draft) %>
         </label>
       </fieldset>
     </fieldset>   
