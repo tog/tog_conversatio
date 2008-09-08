@@ -1,23 +1,28 @@
+<% content_for :sidebar do %>
+	<%= render :partial => '/conversatio/blogs/tag_cloud_blogs' %>
+<% end %>
+
 <%= error_messages_for :post %>
 <% form_for :post, :url => member_conversatio_blog_posts_path(@blog), :html => {:id => "entry", :method => "post"} do |f| -%>
-  <h2>Create post in <%= @blog.title %></h2>
+    <h2><span>Create post in <%= @blog.title %></span></h2>
 
-  <fieldset>
-    <fieldset>
       <fieldset>
         <legend>Metadata</legend>
-        <label>Tags (separated with ,)<%= f.text_field :tag_list, {:size => nil} -%></label>
-        <label>
-          <%= "Status"[:status] %>
-          <%= select_tag "state", options_for_select(Conversatio::Post.states, :draft) %>
-        </label>
+        <p><label for="tag_list">Tags (separated with ,)</label><br/><%= f.text_field :tag_list %></p>
+
+				<p><label for="state">Status</label><br/><%= select_tag "state", options_for_select(Conversatio::Post.states, :draft) %></p>
       </fieldset>
-    </fieldset>   
-      
-    <label>Title <%= f.text_field :title, {:size => nil} %></label>
-    <label>Body <%= f.text_area :body, {:size => nil} %></label>
+    </fieldset>
 
-    <%= submit_tag 'Create post', {:accesskey => "s"} %>
 
-  <fieldset>
+      <fieldset>
+        <legend>Content</legend>
+					<p><label for="title">Title</label><br/><%= f.text_field :title %></p>
+					<p><label for="body">Body</label><br/><%= f.text_area :body %></p>
+      </fieldset>
+    </fieldset>
+
+
+
+<p><%= submit_tag 'Create post', :class => 'button' %></p>
 <% end -%>

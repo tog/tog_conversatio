@@ -18,6 +18,7 @@ module Conversatio
     end
     
     def tag_cloud_posts(classes)
+      return if !@blog
       tags = @blog.posts.tag_counts(:conditions => ["posts.state='published'"])
       return if tags.empty?
       max_count = tags.sort_by(&:count).last.count.to_f

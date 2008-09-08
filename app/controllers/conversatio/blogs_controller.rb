@@ -7,7 +7,6 @@ class Conversatio::BlogsController < ApplicationController
     @blogs = Conversatio::Blog.paginate :per_page => 10,
                                         :page => @page,
                                         :order => @order + " " + @asc
-    @asc = @asc == 'asc' ? 'desc' : 'asc'
   end
 
   def show

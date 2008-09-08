@@ -1,20 +1,34 @@
-<h1>Blogs</h1>
-
-<% if @blogs.empty? %>
-  has no blogs.
-<% else %>
-  <ul>
-    <% @blogs.each do |blog| %>
-      <li><%= link_to "#{sanitize textilize(blog.title)}", conversatio_blog_path(blog), :title => "#{sanitize (blog.title)}" %> (<%=blog.published_posts.size %> posts)</li>
-    <% end %>
-  </ul>
+<% content_for :sidebar do %>
+	<%= render :partial => 'tag_cloud_blogs' %>
 <% end %>
 
-<%= will_paginate @blogs %>
+<p><%= link_to 'Create your blog', new_member_conversatio_blog_path, :class => 'button add' %></p>
 
-<strong>Tags</strong>
-<ul class="tags">
-  <% tag_cloud_blogs %w(l1 l2 l3 l4 l5) do |tag, css_class| %>
-     <li class="<%= css_class -%>"><%= link_to tag.name, tag_conversatio_blogs_posts_path(tag.name) %></li>
-  <% end %>
-</ul>
+<div class="portlet portletB">
+    <h2><span>Blogs</span></h2>
+
+    <div class="portlet_content">	
+        <ul>
+					<% if @blogs.empty? %>
+					  <li class="clearfix">There isn't any blogs yet.
+					<% else %>
+					    <% @blogs.each do |blog| %>
+					      <li class="clearfix">
+						      <!-- <div class="image left"><img src="garbage/foto72x72.jpg" alt="Foto XX"></div> -->
+									<%= link_to "#{sanitize textilize(blog.title)}", conversatio_blog_path(blog), :title => "#{sanitize (blog.title)}" %> (<%=blog.published_posts.size %> posts)</li>
+					    <% end %>
+					<% end %>	
+        </ul>
+    </div>    
+</div>
+<% if !@blogs.empty? %>
+	<div class="info_results">
+	    <span class="info_items">
+	    	Blogs <%=@blogs.size > 0 ? (@blogs.offset + 1) : '0'%> to 
+		          <%=@blogs.size + @blogs.offset%> of <%=@blogs.total_entries%>
+	    </span>
+	    <span class="pages_navigation right">
+		      <%= will_paginate @blogs %>
+	    </span>
+	</div>
+<%end%>

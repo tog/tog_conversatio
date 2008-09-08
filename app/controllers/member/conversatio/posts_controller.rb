@@ -1,8 +1,16 @@
 class Member::Conversatio::PostsController < Member::BaseController
   before_filter :load_blog
+  
+  helper 'conversatio/blogs'
+  
 
   def index
-    @posts = @blog.last_posts
+    @order = params[:order] || 'title'
+    @page = params[:page] || '1'
+    @asc = params[:asc] || 'asc'    
+    @posts = @blog.posts.paginate :per_page => 10,
+                                  :page => @page,
+                                  :order => @order + " " + @asc    
   end
 
   def show

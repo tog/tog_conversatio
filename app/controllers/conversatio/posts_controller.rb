@@ -10,7 +10,16 @@ class Conversatio::PostsController < ApplicationController
   def by_tag
     @blog = Conversatio::Blog.find params[:blog_id]
     @tag  =  Tag.find_by_name(params[:tag_name])
-    @posts = Conversatio::Post.find_tagged_with(@tag, :conditions => ['posts.blog_id=? and posts.state=?', @blog, "published"]) unless @tag.nil?
+    if !@tag.nil?
+      @order = params[:order] || 'title'
+      @page = params[:page] || '1'
+      @asc = params[:asc] || 'asc'      
+      @posts = Conversatio::Post.find_tagged_with(@tag, 
+                    :conditions => ['posts.blog_id=? and posts.state=?', @blog, "published"]
+                    ).paginate :per_page => 10,
+                               :page => @page,
+                               :order => @order + " " + @asc   
+    end                 
   end
 
   def all_by_tag

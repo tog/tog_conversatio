@@ -1,20 +1,19 @@
+<% content_for :sidebar do %>
+	<%= render :partial => '/conversatio/blogs/tag_cloud_blogs' %>
+<% end %>
+
 <%
 #locals
 blog ||= @blog
 %>
-
 <%= error_messages_for :blog %>
 <% form_for :blog, :url => member_conversatio_blogs_path, :html => {:id => "settings", :method => "post"} do |f| -%>
-  <h2>Create blog</h2>
-  <fieldset>
+    <h2><span>Create blog</span></h2>
 
-    <fieldset id="post-details">
-      <legend>Blog details</legend>
-      <label>Title <%= f.text_field :title, {:size => nil} %></label>
-      <label>Description <%= f.text_area :description, {:size => nil} %></label>
-    </fieldset>
+<p><label for="title">Blog title</label><br/><%= f.text_field :title %></p>
 
-    <%= submit_tag 'Create blog', {:accesskey => "s"} %>
+<p><label for="description">Blog description</label><br/><%= f.text_area :description %></p>
 
-  </fieldset>
+
+<p><%= submit_tag 'Create blog', :class => 'button' %></p>
 <% end -%>

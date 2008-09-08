@@ -1,7 +1,14 @@
 class Member::Conversatio::BlogsController < Member::BaseController
   
+  helper 'conversatio/blogs'
+  
   def index
-    @blogs = current_user.blogs
+    @order = params[:order] || 'title'
+    @page = params[:page] || '1'
+    @asc = params[:asc] || 'asc'    
+    @blogs = current_user.blogs.paginate :per_page => 10,
+                                        :page => @page,
+                                        :order => @order + " " + @asc    
   end
 
   def show

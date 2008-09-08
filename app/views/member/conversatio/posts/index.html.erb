@@ -1,13 +1,19 @@
-<h2>Posts: <%= @blog.title %> <%= link_to "Create New post",  new_member_conversatio_blog_post_url(@blog), {:class => "create button", :title => "Create a new post"} %></h2>
+<% content_for :sidebar do %>
+  <%= link_to "Add post",  new_member_conversatio_blog_post_url(@blog), {:class => "add", :title => "Create a new post on this blog"} %>
+  <br/>
+	<%= "render :partial => '/conversatio/blogs/tag_cloud_single_blog', :locals => { :blog => @blog }" %>
+<% end %>
+
+<h2><span>Posts on <%= @blog.title %></span></h2>
 <table>
   <tr>
-    <th>Title</th>
-    <th>Status</th>
-    <th>Comments</th>
-    <th>Created at</th>
+    <th scope="col">Title</th>
+    <th scope="col">Status</th>
+    <th scope="col">Comments</th>
+    <th scope="col">Created at</th>
   </tr>
   <% for post in @posts %>
-  <tr<%= cycle('',' class="even"') -%>>
+  <tr<%= cycle(' class="pair"', '') -%>>
     <td><%= link_to post.title, edit_member_conversatio_blog_post_path(@blog, post) %></td>
     <td><%= post.state %></td>
     <td><%= link_to "##{post.comments.size}", member_conversatio_blog_post_path(@blog, post) %></td>
@@ -15,3 +21,14 @@
   </tr>
   <% end %>
 </table>
+<% if !@posts.empty? %>
+	<div class="info_results">
+	    <span class="info_items">
+	    	Post <%=@posts.size > 0 ? (@posts.offset + 1) : '0'%> to 
+		          <%=@posts.size + @posts.offset%> of <%=@posts.total_entries%>
+	    </span>
+	    <span class="pages_navigation right">
+		      <%= will_paginate @posts %>
+	    </span>
+	</div>
+<%end%>
