@@ -1,6 +1,6 @@
 <strong>Tags</strong>
 <ul class="tags">
   <% tag_cloud_posts %w(l1 l2 l3 l4 l5) do |tag, css_class| %>
-     <li class="<%= css_class -%>"><%= link_to tag.name, tag_conversatio_blogs_posts_path(blog, tag.name) %></li>
+     <li class="<%= css_class -%>"><%= link_to tag.name, tag_conversatio_blogs_posts_path(tag.name) %></li>
   <% end %>
 </ul>
