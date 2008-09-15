@@ -2,7 +2,7 @@ module Conversatio
   module BlogsHelper
     
     def last_posts(blog, limit=5)
-      blog.published_posts :limit => limit, :order => "created_at desc"
+      blog.published_posts[0..limit-1]
     end    
 
     def archives_menu
