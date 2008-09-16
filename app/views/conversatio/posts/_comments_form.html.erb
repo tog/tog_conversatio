@@ -3,7 +3,7 @@
     <% @post.comments.each do |c| %>
       <div >
         <div class="date_details_white">
-          <%= time_ago_in_words c.created_at %> ago, <%= c.user.blank? ? "Anonymous" : c.user.login -%> wrote:
+          <%= time_ago_in_words c.created_at %> ago, <%= comment_user_name(c) -%> wrote:
         </div>
         <div class="comment_message jstruncate">
           <%= sanitize(textilize(c.comment)) %>
@@ -17,10 +17,28 @@
   <% form_for :comment, :url => comment_path, :html => {:id => "f_edit2"} do |f| -%>
     <%= f.hidden_field :commentable_type, {:value => @post.class.name} -%>
     <%= f.hidden_field :commentable_id, {:value => @post.id} -%>
-    <%= f.text_area :comment %>
-    <div class="row button">
-      <%= f.submit 'Add Comment', :class=>'button' %>
-      <div class="clear"></div>
+    <div class="fields">
+      <% if !logged_in? -%>
+        <p>
+          <label for="comment_name">Name</label>
+          <%= f.text_field :name, :class=>"fieldbox" %>       
+        </p>
+        <p>
+          <label for="comment_email">Email</label>
+          <%= f.text_field :email, :class=>"fieldbox" %>       
+        </p>
+        <p>
+          <label for="comment_url">Website</label>
+          <%= f.text_field :url, :class=>"fieldbox" %>       
+        </p>
+      <% end -%>
+      
+      <p>
+        <%= f.text_area :comment, :class=>"fieldbox", :style => "width: 99%" %>
+      </p>
+    </div>
+    <div class="actions">
+      <%= f.submit 'Add Comment', :class=>'button mainaction' %>
     </div>
   <% end %>
 </div>
