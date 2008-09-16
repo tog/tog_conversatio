@@ -3,7 +3,7 @@
     <% @post.comments.each do |c| %>
       <div >
         <div class="date_details_white">
-          <%= time_ago_in_words c.created_at %> ago, <%= c.user.login -%> wrote:
+          <%= time_ago_in_words c.created_at %> ago, <%= c.user.blank? ? "Anonymous" : c.user.login -%> wrote:
         </div>
         <div class="comment_message jstruncate">
           <%= sanitize(textilize(c.comment)) %>
