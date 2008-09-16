@@ -34,7 +34,7 @@ class Member::Conversatio::PostsController < Member::BaseController
       if @post.save
         @post.send("#{params[:state].to_s}!")
         wants.html do
-          flash[:notice] = 'New blog created.'
+          flash[:ok] = 'New blog created.'
           redirect_to member_conversatio_blog_posts_path(@blog)
         end
       else
@@ -53,7 +53,7 @@ class Member::Conversatio::PostsController < Member::BaseController
       if @post.update_attributes(params[:post])
         @post.send("#{params[:state].to_s}!")
         wants.html do
-          flash[:notice]='Blog post updated.'
+          flash[:ok]='Blog post updated.'
           redirect_to member_conversatio_blog_posts_path(@post.blog)
         end
       else
@@ -71,7 +71,7 @@ class Member::Conversatio::PostsController < Member::BaseController
     
     respond_to do |wants|
       wants.html do
-        flash[:notice]='Blog post deleted.'
+        flash[:ok]='Blog post deleted.'
         redirect_to member_conversatio_blog_posts_path(@post.blog)
       end
     end
