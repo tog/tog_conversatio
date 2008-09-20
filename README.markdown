@@ -3,6 +3,14 @@ Conversatio
 
 A simple blog system.
 
+== Included functionality
+
+# Multiblog system
+# Multiauthors blogs
+# Atom subscriptions
+# Blog's archives
+# Tag clouds per blog and global
+# Draft & published status
 
 Resources
 =========
