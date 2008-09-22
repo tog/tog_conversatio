@@ -1,10 +1,10 @@
 <% content_for :sidebar do %>
   <%=link_to image_tag ('/tog_core/images/ico/rss.gif', :alt => 'sindicate'), formatted_conversatio_blog_url(@blog, :atom), :class => 'rss'%>
   <br/><br/>
-	<%= render :partial => '/conversatio/blogs/tag_cloud_single_blog', :locals => { :blog => @blog } %>
-	<br/>
-	Archives:
-	<%= archives_menu %>
+  <%= render :partial => '/conversatio/blogs/tag_cloud_single_blog', :locals => { :blog => @blog } %>
+  <br/>
+  Archives:
+  <%= archives_menu %>
 <% end %>
 
 <% include_autodiscovery(:atom, formatted_conversatio_blog_url(@blog, :atom), :title => @blog.title) %>
@@ -14,26 +14,26 @@
 <div class="portlet portletB">
     <h2><span>Posts tagged with '<%=@tag%>'</span></h2>
 
-    <div class="portlet_content">	
+    <div class="portlet_content"> 
         <ul>
-					<% if @posts.empty? %>
-					  <li class="clearfix">There isn't any entries on this blog tagged with '<%=@tag%>'.
-					<% else %>
-					    <% @posts.each do |post| %>
-								<%= render :partial => '/conversatio/posts/list_detail', :locals => { :blog => @blog, :post => post } %>
-					    <% end %>
-					<% end %>	
+          <% if @posts.empty? %>
+            <li class="clearfix">There isn't any entries on this blog tagged with '<%=@tag%>'.
+          <% else %>
+              <% @posts.each do |post| %>
+                <%= render :partial => '/conversatio/posts/list_detail', :locals => { :blog => @blog, :post => post } %>
+              <% end %>
+          <% end %> 
         </ul>
     </div>    
 </div>
 <% if !@posts.empty? %>
-	<div class="info_results">
-	    <span class="info_items">
-	    	Posts <%=@posts.size > 0 ? (@posts.offset + 1) : '0'%> to 
-		          <%=@posts.size + @posts.offset%> of <%=@posts.total_entries%>
-	    </span>
-	    <span class="pages_navigation right">
-		      <%= will_paginate @posts %>
-	    </span>
-	</div>
+  <div class="info_results">
+      <span class="info_items">
+        Posts <%=@posts.size > 0 ? (@posts.offset + 1) : '0'%> to 
+              <%=@posts.size + @posts.offset%> of <%=@posts.total_entries%>
+      </span>
+      <span class="pages_navigation right">
+          <%= will_paginate @posts %>
+      </span>
+  </div>
 <%end%>

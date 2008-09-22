@@ -5,29 +5,32 @@
 <h2><span>Your blogs</span></h2>
 
 <table class="tableB">
-    <tbody><tr>
-	    <th scope="col">Title</th>
-	    <th scope="col">Posts</th>
-	    <th scope="col">Created at</th>
-	    <th scope="col"></th>
+  <thead>
+      <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Posts</th>
+      <th scope="col">Created at</th>
+      <th scope="col">&nbsp;</th>
     </tr>
-	  <% for blog in @blogs %>
-	  <tr<%= cycle(' class="pair"', '') -%>>
-	    <td><%= link_to blog.title, edit_member_conversatio_blog_path(blog) %></td>
-	    <td><%= link_to "##{blog.posts.size}", member_conversatio_blog_posts_path(blog) %></td>
-	    <td><%= blog.created_at %></td>
-	    <td><%= link_to "Add post",  new_member_conversatio_blog_post_url(blog), {:class => "add", :title => "Create a new post on this blog"} %></td>
-	  </tr>
-	  <% end %>
-</tbody></table>
-<% if !@blogs.empty? %>
-	<div class="info_results">
-	    <span class="info_items">
-	    	Blogs <%=@blogs.size > 0 ? (@blogs.offset + 1) : '0'%> to 
-		          <%=@blogs.size + @blogs.offset%> of <%=@blogs.total_entries%>
-	    </span>
-	    <span class="pages_navigation right">
-		      <%= will_paginate @blogs %>
-	    </span>
-	</div>
-<%end%>
+  </thead>
+  <tfoot>
+    <tr>
+      <td colspan="4" class="info_results">
+        <span class="info_items"><%= page_entries_info @blogs, :entry_name => 'blog' %></span>
+        <span class="pages_navigation right">
+          <%= will_paginate @blogs, :container => false %>
+        </span>
+      </td>
+    </tr>
+  </tfoot>
+  <tbody>
+    <% for blog in @blogs %>
+    <tr<%= cycle(' class="pair"', '') -%>>
+      <td><%= link_to blog.title, edit_member_conversatio_blog_path(blog) %></td>
+      <td><%= link_to "##{blog.posts.size}", member_conversatio_blog_posts_path(blog) %></td>
+      <td><%= blog.created_at %></td>
+      <td><%= link_to "Add post",  new_member_conversatio_blog_post_url(blog), {:class => "add", :title => "Create a new post on this blog"} %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

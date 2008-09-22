@@ -1,9 +1,9 @@
 <% content_for :sidebar do %>
   <%=link_to image_tag ('/tog_core/images/ico/rss.gif', :alt => 'sindicate'), formatted_conversatio_blog_url(@blog, :atom), :class => 'rss'%>
   <br/><br/>
-	<br/>
-	Archives:
-	<%= archives_menu %>
+  <br/>
+  Archives:
+  <%= archives_menu %>
 <% end %>
 
 <h1><%= @blog.title -%></h1>
@@ -12,15 +12,15 @@
   <p>this blog has no blog posts in the specified date.</p>
 <% else %>
 
-	<div class="portlet portletB">
-	  	<h2><span>Archive of <%=@year %>/<%= @month unless @month.nil? %><%= "/#{@day}" unless @day.nil? %></span></h2>
-	    <div class="portlet_content">	
-	        <ul>
-					    <% @posts.each do |post| %>
-								<%= render :partial => '/conversatio/posts/list_detail', :locals => { :blog => @blog, :post => post } %>
-					    <% end %>
-	        </ul>
-	    </div>    
-	</div>
+  <div class="portlet portletB">
+      <h2><span>Archive of <%=@year %>/<%= @month unless @month.nil? %><%= "/#{@day}" unless @day.nil? %></span></h2>
+      <div class="portlet_content"> 
+          <ul>
+              <% @posts.each do |post| %>
+                <%= render :partial => '/conversatio/posts/list_detail', :locals => { :blog => @blog, :post => post } %>
+              <% end %>
+          </ul>
+      </div>    
+  </div>
 
 <% end %>

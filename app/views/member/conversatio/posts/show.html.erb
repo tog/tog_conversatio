@@ -1,17 +1,26 @@
-<h2>Comments: <%= @post.title %></h2>
-<table>
-  <tr>
-    <th>Author</th>
-    <th>Comment</th>
-    <th>Created at</th>
-    <th>&nbsp;</th>
-  </tr>
-  <% for comment in @comments %>
-  <tr<%= cycle('',' class="even"') -%>>
-    <td><%= comment.user.login %></td>
-    <td><%= comment.comment %></td>
-    <td><%= comment.created_at %></td>
-    <td><%= link_to "Remove", comment_remove_path(comment), {:confirm => "¿Quieres eliminar este comentario?"} -%></td>
-  </tr>
-  <% end %>
+<div class="titleB">Comments: <%= @post.title %></div>
+<table class="tableB">
+  <thead>
+    <tr>
+      <th>Author</th>
+      <th>Comment</th>
+      <th>Created at</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for comment in @comments %>
+    <tr<%= cycle('',' class="pair"') -%>>
+      <td><%= comment.user.login %></td>
+      <td><%= comment.comment %></td>
+      <td><%= comment.created_at %></td>
+      <td><%= link_to "Remove", comment_remove_path(comment), {:confirm => 'Are you sure you want to remove this comment?'} -%></td>
+    </tr>
+    <% end %>
+    <% if @comments.blank? %>
+      <tr>
+         <td colspan="4">No comments.</td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>

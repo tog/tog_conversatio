@@ -1,34 +1,38 @@
 <% content_for :sidebar do %>
   <%= link_to "Add post",  new_member_conversatio_blog_post_url(@blog), {:class => "add", :title => "Create a new post on this blog"} %>
-  <br/>
-	<%= "render :partial => '/conversatio/blogs/tag_cloud_single_blog', :locals => { :blog => @blog }" %>
+  <br/><br/>
+  <%= render :partial => '/conversatio/blogs/tag_cloud_single_blog', :locals => { :blog => @blog } %>
 <% end %>
 
-<h2><span>Posts on <%= @blog.title %></span></h2>
-<table>
-  <tr>
-    <th scope="col">Title</th>
-    <th scope="col">Status</th>
-    <th scope="col">Comments</th>
-    <th scope="col">Created at</th>
-  </tr>
-  <% for post in @posts %>
-  <tr<%= cycle(' class="pair"', '') -%>>
-    <td><%= link_to post.title, edit_member_conversatio_blog_post_path(@blog, post) %></td>
-    <td><%= post.state %></td>
-    <td><%= link_to "##{post.comments.size}", member_conversatio_blog_post_path(@blog, post) %></td>
-    <td><%= post.created_at %></td>
-  </tr>
-  <% end %>
+<div class="titleB">Posts on <%= @blog.title %></div>
+
+<table class="tableB">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Status</th>
+      <th scope="col">Comments</th>
+      <th scope="col">Created at</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <td colspan="4" class="info_results">
+        <span class="info_items"><%= page_entries_info @posts, :entry_name => 'post' %></span>
+        <span class="pages_navigation right">
+          <%= will_paginate @posts, :container => false %>
+        </span>
+      </td>
+    </tr>
+  </tfoot>
+  <tbody>
+    <% for post in @posts %>
+    <tr<%= cycle(' class="pair"', '') -%>>
+      <td><%= link_to post.title, edit_member_conversatio_blog_post_path(@blog, post) %></td>
+      <td><%= post.state %></td>
+      <td><%= link_to "##{post.comments.size}", member_conversatio_blog_post_path(@blog, post) %></td>
+      <td><%= post.created_at %></td>
+    </tr>
+    <% end %>
+  </tbody>
 </table>
-<% if !@posts.empty? %>
-	<div class="info_results">
-	    <span class="info_items">
-	    	Post <%=@posts.size > 0 ? (@posts.offset + 1) : '0'%> to 
-		          <%=@posts.size + @posts.offset%> of <%=@posts.total_entries%>
-	    </span>
-	    <span class="pages_navigation right">
-		      <%= will_paginate @posts %>
-	    </span>
-	</div>
-<%end%>
