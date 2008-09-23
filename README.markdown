@@ -70,9 +70,9 @@ rake db:migrate
 More
 -------
 
-"https://github.com/tog/tog_conversatio":https://github.com/tog/tog_conversatio
+[https://github.com/tog/tog_conversatio](https://github.com/tog/tog_conversatio)
 
-"https://github.com/tog/tog_conversatio/wikis":https://github.com/tog/tog_conversatio/wikis
+[https://github.com/tog/tog_conversatio/wikis](https://github.com/tog/tog_conversatio/wikis)
 
 
 Copyright (c) 2008 Keras Software Development, released under the MIT license
