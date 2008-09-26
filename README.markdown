@@ -32,7 +32,7 @@ Install
 * Install plugin form source:
 
 <pre>
-ruby script/plugin install git@github.com:tog/tog_conversatio.git
+ruby script/plugin install git://github.com/tog/tog_conversatio.git
 </pre>
 
 * Generate installation migration:
@@ -41,7 +41,7 @@ ruby script/plugin install git@github.com:tog/tog_conversatio.git
 ruby script/generate migration install_conversatio
 </pre>
 
-	  with the following content:
+with the following content:
 
 <pre>
 class InstallConversatio < ActiveRecord::Migration
