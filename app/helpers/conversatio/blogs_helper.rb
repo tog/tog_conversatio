@@ -2,7 +2,15 @@ module Conversatio
   module BlogsHelper
 
     def last_posts(blog, limit=5)
-      blog.published_posts[0..limit-1]
+      size = blog.published_posts.size
+      if size > 0 and size < limit
+        posts = blog.published_posts[0..size - 1]
+      elsif size > 0
+        posts = blog.published_posts[0..limit - 1]
+      else
+        posts = blog.published_posts  
+      end
+      posts
     end
 
     def archives_menu
