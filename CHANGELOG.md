@@ -1,5 +1,8 @@
 Edge
 ----
+
+0.3.0
+----
 * Translated 'Tags' to english
 * Just removed empty line
 * Checking published post size before getting last posts
