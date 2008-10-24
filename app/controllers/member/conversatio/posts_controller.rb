@@ -15,7 +15,7 @@ class Member::Conversatio::PostsController < Member::BaseController
 
   def show
     @post = @blog.posts.find params[:id]
-    @comments = @post.comments
+    @comments = @post.all_comments
   end
 
   def edit
