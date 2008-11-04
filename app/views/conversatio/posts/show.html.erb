@@ -4,7 +4,7 @@
   <h2><%= sanitize textilize(@post.title) %></h2>
   <div>Posted <%= time_ago_in_words @post.created_at %></div>
   <%= render :partial => 'tags', :locals => { :post => @post } %>
-  <div><%= sanitize textilize(@post.body) %></div>
+  <div><%= sanitize(textilize(@post.body), :tags => (Tog::Plugins.settings :tog_core, 'sanitized.allowed_tags').split, :attributes => (Tog::Plugins.settings :tog_core, 'sanitized.allowed_attributes').split) %></div>
   <br/>
   <%= render :partial => "shared/comments", :locals => { :commentable => @post } %>
 </div>

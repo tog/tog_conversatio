@@ -1,5 +1,6 @@
 Edge
 ----
+* Sanitize tags change allowed
 * Ticket #102. Consolidate comments listing and form
 * acts\_as\_taggable\_on\_steroids dependency is already in tog_core
 * Manage spam comments
