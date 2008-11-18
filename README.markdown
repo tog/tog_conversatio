@@ -25,7 +25,7 @@ In case you haven't installed any of them previously you'll need the following p
 * [seo\_urls](https://github.com/tog/tog/wikis/3rd-party-plugins-seo_urls)
 * [acts\_as\_taggable\_on\_steroids](https://github.com/tog/tog/wikis/3rd-party-plugins-acts_as_taggable_on_steroids)
 
-Follow each link above for a short installation guide incase you have to install them.			
+Follow each link above for a short installation guide incase you have to install them.
 
 Install
 -------
@@ -60,13 +60,19 @@ end
 
 <pre>
 map.routes_from_plugin 'tog_conversatio'
-</pre> 
+</pre>
+
+* Create sphinx indexes
+
+<pre>
+rake thinking_sphinx:index
+</pre>
 
 * And finally...
 
-<pre> 
+<pre>
 rake db:migrate
-</pre> 
+</pre>
 
 More
 -------
