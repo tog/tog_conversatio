@@ -23,10 +23,11 @@ class Member::Conversatio::PostsController < Member::BaseController
   end
 
   def new
+    @post = @blog.posts.new
   end
 
   def create
-    @post = Conversatio::Post.new params[:post]
+    @post = Post.new params[:post]
     @post.blog = @blog
     @post.user = current_user
 

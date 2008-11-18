@@ -1,8 +1,11 @@
 Edge
 ----
+* Added some tests
+* Remove model namespaces
+* Added sphinx search using thinking\_sphinx
 * Sanitize tags change allowed
 * Ticket #102. Consolidate comments listing and form
-* acts\_as\_taggable\_on\_steroids dependency is already in tog_core
+* acts\_as\_taggable\_on\_steroids dependency is already in tog\_core
 * Manage spam comments
 
 0.3.0

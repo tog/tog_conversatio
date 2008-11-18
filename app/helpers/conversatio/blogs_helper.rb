@@ -41,7 +41,7 @@ module Conversatio
     end
 
     def tag_cloud_blogs(classes)
-      tags = Conversatio::Post.tag_counts(:conditions => ["posts.state='published'"])
+      tags = Post.tag_counts(:conditions => ["posts.state='published'"])
       return if tags.empty?
       max_count = tags.sort_by(&:count).last.count.to_f
       tags.each do |tag|

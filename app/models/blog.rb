@@ -11,7 +11,7 @@
 #  updated_at   :datetime
 #
 
-class Conversatio::Blog < ActiveRecord::Base
+class Blog < ActiveRecord::Base
   seo_urls
 
   has_many   :posts

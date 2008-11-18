@@ -1,5 +1,5 @@
 <% content_for :sidebar do %>
-  <%=link_to image_tag ('/tog_core/images/ico/rss.gif', :alt => 'sindicate'), formatted_conversatio_blog_url(@blog, :atom), :class => 'rss'%>
+  <%=link_to image_tag('/tog_core/images/ico/rss.gif', :alt => 'sindicate'), formatted_conversatio_blog_url(@blog, :atom), :class => 'rss'%>
   <br/><br/>
   <%= render :partial => 'tag_cloud_single_blog', :locals => { :blog => @blog } %>
   <br/>
@@ -12,14 +12,14 @@
 <h2><span><%= @blog.title -%></span></h2>
 
 <div class="detail detail1">
-    <div class="text"><%= sanitize textilize(@blog.description) %></div>  
-    
+    <div class="text"><%= sanitize textilize(@blog.description) %></div>
+
 </div> <!-- /.detail1 -->
 
 <div class="portlet portletB">
     <h2><span>Last entries</span></h2>
 
-    <div class="portlet_content"> 
+    <div class="portlet_content">
         <ul>
           <% if @posts.empty? %>
             <li class="clearfix">There isn't any entries on this blog yet.
@@ -27,14 +27,14 @@
               <% @posts.each do |post| %>
                 <%= render :partial => '/conversatio/posts/list_detail', :locals => { :blog => @blog, :post => post } %>
               <% end %>
-          <% end %> 
+          <% end %>
         </ul>
-    </div>    
+    </div>
 </div>
 <% if !@posts.empty? %>
   <div class="info_results">
       <span class="info_items">
-        Posts <%=@posts.size > 0 ? (@posts.offset + 1) : '0'%> to 
+        Posts <%=@posts.size > 0 ? (@posts.offset + 1) : '0'%> to
               <%=@posts.size + @posts.offset%> of <%=@posts.total_entries%>
       </span>
       <span class="pages_navigation right">

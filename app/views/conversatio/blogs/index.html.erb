@@ -7,7 +7,7 @@
 <div class="portlet portletB">
     <h2><span>Blogs</span></h2>
 
-    <div class="portlet_content"> 
+    <div class="portlet_content">
         <ul>
           <% if @blogs.empty? %>
             <li class="clearfix">There isn't any blogs yet.
@@ -15,16 +15,16 @@
               <% @blogs.each do |blog| %>
                 <li class="clearfix">
                   <!-- <div class="image left"><img src="garbage/foto72x72.jpg" alt="Foto XX"></div> -->
-                  <%= link_to "#{sanitize textilize(blog.title)}", conversatio_blog_path(blog), :title => "#{sanitize (blog.title)}" %> (<%=blog.published_posts.size %> posts)</li>
+                  <%= link_to "#{sanitize textilize(blog.title)}", conversatio_blog_path(blog), :title => "#{sanitize(blog.title)}" %> (<%=blog.published_posts.size %> posts)</li>
               <% end %>
-          <% end %> 
+          <% end %>
         </ul>
-    </div>    
+    </div>
 </div>
 <% if !@blogs.empty? %>
   <div class="info_results">
       <span class="info_items">
-        Blogs <%=@blogs.size > 0 ? (@blogs.offset + 1) : '0'%> to 
+        Blogs <%=@blogs.size > 0 ? (@blogs.offset + 1) : '0'%> to
               <%=@blogs.size + @blogs.offset%> of <%=@blogs.total_entries%>
       </span>
       <span class="pages_navigation right">

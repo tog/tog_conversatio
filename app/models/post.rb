@@ -12,13 +12,21 @@
 #  updated_at :datetime
 #
 
-class Conversatio::Post < ActiveRecord::Base
+class Post < ActiveRecord::Base
   acts_as_commentable
   acts_as_taggable
   seo_urls
-  
+
   belongs_to :blog
   belongs_to :user
+
+  define_index do
+    indexes :title
+    indexes :body
+    indexes :state
+    
+    #set_property :delta => true
+  end
 
   validates_presence_of :title, :body
 
@@ -38,4 +46,9 @@ class Conversatio::Post < ActiveRecord::Base
   def owner
     user
   end
+
+  def self.site_search(query, search_options = {})
+    search query, :conditions => {:state=>'published'}
+  end
+
 end

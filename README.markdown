@@ -20,6 +20,7 @@ Plugin requirements
 
 In case you haven't installed any of them previously you'll need the following plugins:
 
+* [thinking-sphinx](https://github.com/tog/tog/wikis/3rd-party-plugins-thinking-sphinx)
 * [acts\_as\_commentable](https://github.com/tog/tog/wikis/3rd-party-plugins-acts_as_commentable)
 * [seo\_urls](https://github.com/tog/tog/wikis/3rd-party-plugins-seo_urls)
 * [acts\_as\_taggable\_on\_steroids](https://github.com/tog/tog/wikis/3rd-party-plugins-acts_as_taggable_on_steroids)
