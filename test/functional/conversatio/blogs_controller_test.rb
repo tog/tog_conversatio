@@ -13,6 +13,7 @@ class Conversatio::BlogsControllerTest < Test::Unit::TestCase
       @bloggership = Factory(:bloggership, :user => @member_user, :blog => @blog)
       @post = Factory(:post, :title => 'My post', :body => 'bla, bla, bla...', :user => @member_user, :blog => @blog)
       @post.published!
+      Factory(:post, :title => 'My draft post', :body => 'bla, bla, bla...', :user => @member_user, :blog => @blog).draft!
     end
 
     context "on GET to :index" do
@@ -28,11 +29,12 @@ class Conversatio::BlogsControllerTest < Test::Unit::TestCase
 
     context "on GET to :show" do
       setup do
+        Factory(:post, :title => 'Other post', :body => 'bla, bla, bla...', :user => @member_user, :blog => @blog).draft!
         get :show, :id => @blog.id
       end
 
-      should_assign_to :blog
-      should_assign_to :posts
+      should_assign_to :blog, :equals => '@blog'
+      should_assign_to :posts, :equals => '@blog.published_posts'
 
       should_respond_with :success
       should_render_template :show

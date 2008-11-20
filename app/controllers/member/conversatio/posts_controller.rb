@@ -18,12 +18,12 @@ class Member::Conversatio::PostsController < Member::BaseController
     @comments = @post.all_comments
   end
 
-  def edit
-    @post = @blog.posts.find params[:id]
-  end
-
   def new
     @post = @blog.posts.new
+  end
+
+  def edit
+    @post = @blog.posts.find params[:id]
   end
 
   def create
