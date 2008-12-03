@@ -10,7 +10,7 @@
     <legend>Metadata</legend>
     <div class="fields">
       <p><label for="post_tag_list">Tags (separated with ,)</label><%= f.text_field :tag_list, :class=>"fieldbox wide" -%></p>
-      <p><label for="post_state">Status</label><%= select_tag "state", options_for_select(Conversatio::Post.states, :draft) -%></p>
+      <p><label for="post_state">Status</label><%= select_tag "state", options_for_select(Post.states, :draft) -%></p>
     </div>
   </fieldset>
   <fieldset>
