@@ -22,4 +22,9 @@ class Blog < ActiveRecord::Base
   belongs_to :author,          :class_name => "User", :foreign_key => "author_id"
 
   validates_presence_of :title
+  
+  def self.site_search(query, search_options={})
+    sql = "%#{query}%"
+    Blog.find(:all, :conditions => ["title like ? or description like ?", sql, sql])
+  end
 end

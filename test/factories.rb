@@ -12,5 +12,5 @@ end
 Factory.define :bloggership do |u|
 end
 
-Factory.define :post do |u|
+Factory.define :post do |p|
 end

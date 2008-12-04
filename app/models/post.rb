@@ -47,8 +47,15 @@ class Post < ActiveRecord::Base
     user
   end
 
-  def self.site_search(query, search_options = {})
-    search query, :conditions => {:state=>'published'}
+  #def self.site_search(query, search_options = {})
+  #  search query, :conditions => {:state=>'published'}
+  #end
+  
+  named_scope :published, :conditions => {:state => 'published'}
+
+  def self.site_search(query, search_options={})
+    sql = "%#{query}%"
+    Post.published.find(:all, :conditions => ["title like ? or body like ?", sql, sql])
   end
 
 end

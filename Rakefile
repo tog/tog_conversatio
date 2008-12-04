@@ -19,4 +19,4 @@ Rake::RDocTask.new(:rdoc) do |rdoc|
   rdoc.options << '--line-numbers' << '--inline-source'
   rdoc.rdoc_files.include('README', 'MIT-LICENCE', 'CHANGELOG')
   rdoc.rdoc_files.include('lib/**/*.rb')
-end
+end      
