@@ -1,5 +1,8 @@
 Edge
 ----
+
+0.4.0
+----
 * Added some tests
 * Remove model namespaces
 * Added sphinx search using thinking\_sphinx
