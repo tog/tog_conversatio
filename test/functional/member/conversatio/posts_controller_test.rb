@@ -7,7 +7,7 @@ class Member::Conversatio::PostsControllerTest < ActionController::TestCase
       setup do
         get :index, :id => 1
       end
-      should_redirect_to "login_path"
+      should_redirect_to "new_session_path"
     end
 
     context "with a logged user" do

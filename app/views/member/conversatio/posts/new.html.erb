@@ -1,5 +1,5 @@
 <% content_for :sidebar do %>
-  <%= render :partial => '/conversatio/blogs/tag_cloud_single_blog' %>
+  <%= render :partial => '/conversatio/blogs/tag_cloud_single_blog', :locals => { :blog => @blog } %>
 <% end %>
 
 <div class="titleB">Create post in <%= @blog.title %></div>

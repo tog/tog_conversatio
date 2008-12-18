@@ -6,9 +6,9 @@ class Member::Conversatio::BlogsController < Member::BaseController
     @order = params[:order] || 'title'
     @page = params[:page] || '1'
     @asc = params[:asc] || 'asc'
-    @blogs = current_user.blogs.paginate :per_page => 10,
-                                        :page => @page,
-                                        :order => @order + " " + @asc
+    @blogs = current_user.blogs.paginate :per_page => Tog::Config['plugins.tog_core.pagination_size'],
+                                         :page => @page,
+                                         :order => @order + " " + @asc
   end
 
   def edit

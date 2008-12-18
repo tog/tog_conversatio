@@ -29,7 +29,10 @@
       <td><%= link_to blog.title, edit_member_conversatio_blog_path(blog) %></td>
       <td><%= link_to "##{blog.posts.size}", member_conversatio_blog_posts_path(blog) %></td>
       <td><%= blog.created_at %></td>
-      <td><%= link_to "Add post",  new_member_conversatio_blog_post_url(blog), {:class => "add", :title => "Create a new post on this blog"} %></td>
+      <td>
+        <%= link_to "Add post",  new_member_conversatio_blog_post_url(blog), {:class => "add", :title => "Create a new post on this blog"} %>
+        <%= link_to("Manage Editors",  member_conversatio_blog_bloggerships_url(blog), {:class => "add", :title => "Manage editors on this blog"}) if current_user == blog.author %> 
+      </td>
     </tr>
     <% end %>
   </tbody>

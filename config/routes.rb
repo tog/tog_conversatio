@@ -18,6 +18,7 @@ namespace(:member) do |member|
   member.namespace(:conversatio) do |conversatio| 
     conversatio.resources :blogs do |blog|
       blog.resources :posts
+      blog.resources :bloggerships, :as => 'editors', :only => [:index, :create, :destroy]
     end
   end
 end

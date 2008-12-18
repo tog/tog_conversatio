@@ -1,0 +1,52 @@
+<% content_for :sidebar do %>
+  <% form_for :bloggership, :url => member_conversatio_blog_bloggerships_path(@blog) do |f| %>
+      <select name="bloggership[user_id]" id="bloggership_user_id" class="fieldbox">
+        <option value="0">
+           Select...
+        </option>
+        <optgroup label="Friends">
+           <%= options_from_collection_for_select(current_user.profile.friends, "user_id", "full_name") %>
+        </optgroup>
+        <optgroup label="Followers">
+           <%= options_from_collection_for_select(current_user.profile.followers, "user_id", "full_name") %>
+        </optgroup>
+        <optgroup label="Followings">
+           <%= options_from_collection_for_select(current_user.profile.followings, "user_id", "full_name") %>
+        </optgroup>
+     </select>
+     <%= submit_tag 'Add Editor', :class => "button mainaction" %>
+  <% end %>
+<% end %>
+
+<h2><span><%= @blog.title %> Editors</span></h2>
+
+<table class="tableB">
+  <thead>
+      <tr>
+      <th scope="col">Name</th>
+      <th scope="col">&nbsp;</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <td colspan="4" class="info_results">
+        <span class="info_items"><%= page_entries_info @bloggerships, :entry_name => 'Editors' %></span>
+        <span class="pages_navigation right">
+          <%= will_paginate @bloggerships, :container => false %>
+        </span>
+      </td>
+    </tr>
+  </tfoot>
+  <tbody>
+    <% for bloggership in @bloggerships %>
+    <tr<%= cycle(' class="pair"', '') -%>>
+      <td><%= bloggership.user.login %></td>
+      <td>
+        <% form_for :bloggership, :url => member_conversatio_blog_bloggership_path(@blog, bloggership), :html => {:method => :delete} do |f| %>
+          <%= submit_tag 'Remove', :class => "button mainaction", :confirm => 'Are you sure you want to remove this editor?' %>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

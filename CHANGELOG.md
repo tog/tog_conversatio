@@ -1,5 +1,6 @@
 Edge
 ----
+* Ticket #84. Can't add more bloggers to a blog
 
 0.4.0
 ----

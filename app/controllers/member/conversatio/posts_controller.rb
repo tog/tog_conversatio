@@ -8,7 +8,7 @@ class Member::Conversatio::PostsController < Member::BaseController
     @order = params[:order] || 'title'
     @page = params[:page] || '1'
     @asc = params[:asc] || 'asc'    
-    @posts = @blog.posts.paginate :per_page => 10,
+    @posts = @blog.posts.paginate :per_page => Tog::Config['plugins.tog_core.pagination_size'],
                                   :page => @page,
                                   :order => @order + " " + @asc    
   end
