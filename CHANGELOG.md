@@ -1,6 +1,7 @@
 Edge
 ----
 * Ticket #84. Can't add more bloggers to a blog
+* Ticket #114. Order post index in member section by created_at
 
 0.4.0
 ----

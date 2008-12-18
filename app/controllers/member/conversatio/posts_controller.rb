@@ -5,9 +5,9 @@ class Member::Conversatio::PostsController < Member::BaseController
   
 
   def index
-    @order = params[:order] || 'title'
+    @order = params[:order] || 'created_at'
     @page = params[:page] || '1'
-    @asc = params[:asc] || 'asc'    
+    @asc = params[:asc] || 'desc'    
     @posts = @blog.posts.paginate :per_page => Tog::Config['plugins.tog_core.pagination_size'],
                                   :page => @page,
                                   :order => @order + " " + @asc    
