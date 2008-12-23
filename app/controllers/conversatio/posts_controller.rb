@@ -40,8 +40,8 @@ class Conversatio::PostsController < ApplicationController
     @blog = Blog.find params[:blog_id]
     @posts = @blog.published_posts.paginate :per_page => 10,
                                             :page => @page,
-                                            :conditions => ['created_at between ? and ?', from, to],
-                                            :order => "created_at desc"
+                                            :conditions => ['published_at between ? and ?', from, to],
+                                            :order => "published_at desc"
   end
 
 end

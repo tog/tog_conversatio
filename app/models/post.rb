@@ -33,7 +33,7 @@ class Post < ActiveRecord::Base
   acts_as_state_machine :initial => :draft
 
   state :draft
-  state :published
+  state :published, :enter => Proc.new {|p| p.published_at = DateTime.now if p.published_at.nil? }
 
   event :published do
     transitions :from => [:draft] , :to => :published

@@ -2,6 +2,7 @@ Edge
 ----
 * Ticket #84. Can't add more bloggers to a blog
 * Ticket #114. Order post index in member section by created_at
+* Ticket #115. Create a 'published_at' column on public post index
 
 0.4.0
 ----

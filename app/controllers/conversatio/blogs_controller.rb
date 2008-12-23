@@ -15,7 +15,7 @@ class Conversatio::BlogsController < ApplicationController
     @blog = Blog.find params[:id]
     @posts = @blog.published_posts.paginate :per_page => 10,
                                             :page => @page, 
-                                            :order => "created_at desc"
+                                            :order => "published_at desc"
 
     respond_to do |format|
       format.html

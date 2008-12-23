@@ -1,16 +1,15 @@
 class Member::Conversatio::PostsController < Member::BaseController
   before_filter :load_blog
-  
+
   helper 'conversatio/blogs'
-  
 
   def index
     @order = params[:order] || 'created_at'
     @page = params[:page] || '1'
-    @asc = params[:asc] || 'desc'    
+    @asc = params[:asc] || 'desc'
     @posts = @blog.posts.paginate :per_page => Tog::Config['plugins.tog_core.pagination_size'],
                                   :page => @page,
-                                  :order => @order + " " + @asc    
+                                  :order => @order + " " + @asc
   end
 
   def show
@@ -30,6 +29,7 @@ class Member::Conversatio::PostsController < Member::BaseController
     @post = Post.new params[:post]
     @post.blog = @blog
     @post.user = current_user
+    @post.published_at = nil unless params[:update_published_at]
 
     respond_to do |wants|
       if @post.save
@@ -49,9 +49,10 @@ class Member::Conversatio::PostsController < Member::BaseController
 
   def update
     @post = @blog.posts.find params[:id]
-
+    
     respond_to do |wants|
       if @post.update_attributes(params[:post])
+        @post.update_attribute(:published_at, nil) unless params[:update_published_at]
         @post.send("#{params[:state].to_s}!")
         wants.html do
           flash[:ok]='Blog post updated.'
@@ -69,7 +70,7 @@ class Member::Conversatio::PostsController < Member::BaseController
   def destroy
     @post = @blog.posts.find params[:id]
     @post.destroy
-    
+
     respond_to do |wants|
       wants.html do
         flash[:ok]='Blog post deleted.'

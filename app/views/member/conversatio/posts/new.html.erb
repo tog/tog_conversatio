@@ -11,6 +11,7 @@
     <div class="fields">
       <p><label for="post_tag_list">Tags (separated with ,)</label><%= f.text_field :tag_list, :class=>"fieldbox wide" -%></p>
       <p><label for="post_state">Status</label><%= select_tag "state", options_for_select(Post.states, :draft) -%></p>
+      <p><label for="update_published_at"><%= check_box_tag "update_published_at", "1", !@post.published_at.nil? %> Published At</label><%= f.datetime_select :published_at -%></p>
     </div>
   </fieldset>
   <fieldset>
