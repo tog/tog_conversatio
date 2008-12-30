@@ -13,7 +13,9 @@
 
 class Blog < ActiveRecord::Base
   seo_urls
-
+  
+  acts_as_taggable
+  
   has_many   :posts
   has_many   :last_posts,      :class_name => 'Post', :order => 'created_at DESC'
   has_many   :published_posts, :class_name => 'Post', :order => 'created_at DESC', :conditions => ['state = ?', 'published']

@@ -20,6 +20,14 @@ class PostTest < Test::Unit::TestCase
       assert_contains @stories, @country 
       assert_not_contains @stories, @economy
     end
+    
+    should "should find only published" do
+      @posts = Post.published
+      assert_contains @posts, @country
+      
+      assert_not_contains @posts, @economy
+      
+    end
   
   end
 end
