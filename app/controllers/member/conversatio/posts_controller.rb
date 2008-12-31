@@ -35,12 +35,12 @@ class Member::Conversatio::PostsController < Member::BaseController
       if @post.save
         @post.send("#{params[:state].to_s}!")
         wants.html do
-          flash[:ok] = 'New blog created.'
+          flash[:ok] = 'New post created.'
           redirect_to member_conversatio_blog_posts_path(@blog)
         end
       else
         wants.html do
-          flash.now[:error] = 'Failed to create a new blog.'
+          flash.now[:error] = 'Failed to create a new post.'
           render :action => :new
         end
       end
