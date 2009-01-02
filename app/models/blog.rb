@@ -12,7 +12,9 @@
 #
 class Blog < ActiveRecord::Base
   seo_urls
-
+  
+  acts_as_taggable
+  
   has_many   :posts
   has_many   :published_posts, :class_name => 'Post', :order => 'published_at DESC', :conditions => ['state = ? and published_at <= ?', 'published', DateTime.now]
   has_many   :bloggerships,    :dependent => :destroy
@@ -20,4 +22,9 @@ class Blog < ActiveRecord::Base
   belongs_to :author,          :class_name => "User", :foreign_key => "author_id"
 
   validates_presence_of :title
+  
+  def self.site_search(query, search_options={})
+    sql = "%#{query}%"
+    Blog.find(:all, :conditions => ["title like ? or description like ?", sql, sql])
+  end
 end

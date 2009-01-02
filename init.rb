@@ -8,4 +8,5 @@ Tog::Interface.sections(:member).add "Blogs", "/member/conversatio/blogs"
 
 Tog::Plugins.helpers Conversatio::BlogsHelper
 
-Tog::Search.sources << Post
+Tog::Search.sources << "Post"
+Tog::Search.sources << "Blog"
