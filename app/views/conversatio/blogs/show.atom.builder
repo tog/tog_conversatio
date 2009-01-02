@@ -8,7 +8,7 @@ atom_feed(:url => formatted_conversatio_blog_posts_url(@blog, :atom)) do |feed|
       entry.content(textilize(post.body), :type => 'html')
 
       entry.author do |author|
-        author.name(post.user.name)
+        author.name(post.user.profile.full_name)
         author.email(post.user.email)
       end
     end
