@@ -15,3 +15,10 @@ blog ||= @blog
   </fieldset>
   <div class="actions"><%= submit_tag 'Create blog', :class => 'button mainaction' %></div>
 <% end -%>
+
+
+<% content_for :sidebar do %>
+
+  <%= render :partial => 'member/conversatio/blogs/blogs' %>
+  
+<% end %>

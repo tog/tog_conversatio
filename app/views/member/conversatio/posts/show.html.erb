@@ -1,5 +1,3 @@
-<% @columns_distribution="col_100" %>
-
 <div class="titleB">Comments: <%= @post.title %></div>
 <table class="tableB">
   <thead>
@@ -28,3 +26,9 @@
     <% end %>
   </tbody>
 </table>
+
+<% content_for :sidebar do %>
+  <%= render :partial => 'member/conversatio/blogs/manage', :locals => {:blog => @blog} %>
+  <br/>  
+  <%= render :partial => 'conversatio/blogs/tag_cloud_single_blog', :locals => { :blog => @blog } %>
+<% end %>

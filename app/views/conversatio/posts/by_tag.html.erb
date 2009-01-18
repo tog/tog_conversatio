@@ -1,15 +1,15 @@
 <% content_for :sidebar do %>
-  <%=link_to image_tag ('/tog_core/images/ico/rss.gif', :alt => 'sindicate'), formatted_conversatio_blog_url(@blog, :atom), :class => 'rss'%>
-  <br/><br/>
+  <%= render :partial => 'member/conversatio/blogs/manage', :locals => {:blog => @blog} %>
+  <br/>  
   <%= render :partial => '/conversatio/blogs/tag_cloud_single_blog', :locals => { :blog => @blog } %>
   <br/>
-  Archives:
-  <%= archives_menu %>
+  <%= render :partial => 'conversatio/blogs/archive' %>
 <% end %>
 
 <% include_autodiscovery(:atom, formatted_conversatio_blog_url(@blog, :atom), :title => @blog.title) %>
 
-<h2><span><%= @blog.title -%></span></h2>
+<h2><span><%= @blog.title -%></span> <%=link_to image_tag ('/tog_core/images/ico/rss.gif', :alt => 'sindicate'), formatted_conversatio_blog_url(@blog, :atom), :class => 'rss'%>
+</h2>
 
 <div class="portlet portletB">
     <h2><span>Posts tagged with '<%=@tag%>'</span></h2>

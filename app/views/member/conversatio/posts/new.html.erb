@@ -1,7 +1,3 @@
-<% content_for :sidebar do %>
-  <%= render :partial => '/conversatio/blogs/tag_cloud_single_blog', :locals => { :blog => @blog } %>
-<% end %>
-
 <div class="titleB">Create post in <%= @blog.title %></div>
 
 <%= error_messages_for :post %>
@@ -26,3 +22,10 @@
     <%= submit_tag 'Create post', {:class => "button mainaction", :accesskey => "s"} %>
   </div>
 <% end -%>
+
+
+<% content_for :sidebar do %>
+  <%= render :partial => 'member/conversatio/blogs/manage', :locals => {:blog => @blog} %>
+  <br/>  
+  <%= render :partial => 'conversatio/blogs/tag_cloud_single_blog', :locals => { :blog => @blog } %>
+<% end %>

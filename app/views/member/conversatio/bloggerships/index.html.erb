@@ -1,24 +1,26 @@
-<% content_for :sidebar do %>
-  <% form_for :bloggership, :url => member_conversatio_blog_bloggerships_path(@blog) do |f| %>
-      <select name="bloggership[user_id]" id="bloggership_user_id" class="fieldbox">
-        <option value="0">
-           Select...
-        </option>
-        <optgroup label="Friends">
-           <%= options_from_collection_for_select(current_user.profile.friends, "user_id", "full_name") %>
-        </optgroup>
-        <optgroup label="Followers">
-           <%= options_from_collection_for_select(current_user.profile.followers, "user_id", "full_name") %>
-        </optgroup>
-        <optgroup label="Followings">
-           <%= options_from_collection_for_select(current_user.profile.followings, "user_id", "full_name") %>
-        </optgroup>
-     </select>
-     <%= submit_tag 'Add Editor', :class => "button mainaction" %>
-  <% end %>
-<% end %>
+<h2><span><%= @blog.title %> editors</span></h2>
 
-<h2><span><%= @blog.title %> Editors</span></h2>
+
+      <% form_for :bloggership, :url => member_conversatio_blog_bloggerships_path(@blog) do |f| %>
+          <select name="bloggership[user_id]" id="bloggership_user_id" class="fieldbox">
+            <option value="0">
+               Select...
+            </option>
+            <optgroup label="Friends">
+               <%= options_from_collection_for_select(current_user.profile.friends, "user_id", "full_name") %>
+            </optgroup>
+            <optgroup label="Followers">
+               <%= options_from_collection_for_select(current_user.profile.followers, "user_id", "full_name") %>
+            </optgroup>
+            <optgroup label="Followings">
+               <%= options_from_collection_for_select(current_user.profile.followings, "user_id", "full_name") %>
+            </optgroup>
+         </select>
+         <%= submit_tag 'Add editor', :class => "button mainaction" %>
+      <% end %>
+  
+
+<br/>
 
 <table class="tableB">
   <thead>
@@ -50,3 +52,10 @@
     <% end %>
   </tbody>
 </table>
+
+
+<% content_for :sidebar do %>
+  <%= render :partial => 'member/conversatio/blogs/manage', :locals => {:blog => @blog} %>
+  <br/>  
+  <%= render :partial => 'conversatio/blogs/tag_cloud_single_blog', :locals => { :blog => @blog } %>
+<% end %>

@@ -1,0 +1,19 @@
+<% if logged_in? %>
+  <div class="portlet portletD" id="portlet_userWall">
+      <h2><span>Your blogs</span></h2>
+      <div class="portlet_content">
+        <ul>
+          <% current_user.blogs.each do |blog| %>
+            <li class="clearfix">
+                <div class="text">
+                    <%= link_to blog.title, conversatio_blog_path(blog) %>
+                    <small><%= link_to 'entries', member_conversatio_blog_posts_path(blog) %> </small>
+                </div>
+            </li>      
+          <% end -%>
+        </ul>
+        <br/>
+        <%= link_to 'Create a new blog', new_member_conversatio_blog_path, :class => 'add' %>
+      </div>    
+  </div>
+<% end -%>

@@ -1,11 +1,5 @@
-<% content_for :sidebar do %>
-  <%= link_to "Add post",  new_member_conversatio_blog_post_url(@blog), {:class => "add", :title => "Create a new post on this blog"} %>
-  <br/><br/>
-  <%= render :partial => '/conversatio/blogs/tag_cloud_single_blog', :locals => { :blog => @blog } %>
-<% end %>
-
 <div class="titleB">Posts on <%= @blog.title %></div>
-
+<p><%= link_to "Add post",  new_member_conversatio_blog_post_url(@blog), {:class => "button add", :title => "Create a new post on this blog"} %></p>
 <table class="tableB">
   <thead>
     <tr>
@@ -36,3 +30,9 @@
     <% end %>
   </tbody>
 </table>
+
+<% content_for :sidebar do %>
+  <%= render :partial => 'member/conversatio/blogs/manage', :locals => {:blog => @blog} %>
+  <br/>  
+  <%= render :partial => 'conversatio/blogs/tag_cloud_single_blog', :locals => { :blog => @blog } %>
+<% end %>

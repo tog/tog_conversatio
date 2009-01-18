@@ -1,9 +1,5 @@
-<% content_for :sidebar do %>
- <%= link_to "Create a new blog",  new_member_conversatio_blog_url, {:class => "add", :title => "Create a new blog"} %>
-<% end %>
-
 <h2><span>Your blogs</span></h2>
-
+<p><%= link_to 'Create your blog', new_member_conversatio_blog_path, :class => 'button add' %></p> 
 <table class="tableB">
   <thead>
       <tr>
@@ -37,3 +33,7 @@
     <% end %>
   </tbody>
 </table>
+
+<% content_for :sidebar do %>
+  <%= render :partial => 'member/conversatio/blogs/blogs' %>
+<% end %>
