@@ -4,12 +4,14 @@
       <div class="portlet_content">
         <ul>
           <% current_user.blogs.each do |blog| %>
+           <% unless blog.new_record?%>
             <li class="clearfix">
                 <div class="text">
                     <%= link_to blog.title, conversatio_blog_path(blog) %>
                     <small><%= link_to 'entries', member_conversatio_blog_posts_path(blog) %> </small>
                 </div>
-            </li>      
+            </li>
+            <% end -%>      
           <% end -%>
         </ul>
         <br/>
