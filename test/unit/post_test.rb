@@ -8,24 +8,25 @@ class PostTest < Test::Unit::TestCase
   context "A Post" do
     
     setup do
-      @economy = Factory(:post, :title => 'Crisis', :body => 'more', :state => 'draft')
-      @country = Factory(:post, :title => 'New country', :body => 'more', :state => 'published')
+      @economy = Factory(:post, :title => 'Crisis', :body => 'more')
+      @country = Factory(:post, :title => 'New country', :body => 'more')
+      @country.published!
     end
     
-    should "should find one result" do
+    should "find one result" do
       assert_contains Post.site_search('country'), @country
       
       @stories = Post.site_search('more')
       
       assert_contains @stories, @country 
-      assert_not_contains @stories, @economy
+      assert_does_not_contain @stories, @economy
     end
     
-    should "should find only published" do
+    should "find only published" do
       @posts = Post.published
       assert_contains @posts, @country
       
-      assert_not_contains @posts, @economy
+      assert_does_not_contain @posts, @economy
       
     end
   
