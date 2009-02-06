@@ -1,0 +1,6 @@
+es:
+  interface:
+    member:
+      blogs: Blogs
+    site:
+      blogs: Blogs
