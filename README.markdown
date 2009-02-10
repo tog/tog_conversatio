@@ -47,7 +47,7 @@ with the following content:
 <pre>
 class InstallConversatio < ActiveRecord::Migration
   def self.up
-    migrate_plugin "tog_conversatio", 4
+    migrate_plugin "tog_conversatio", 5 
   end
 
   def self.down
