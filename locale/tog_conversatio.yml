@@ -4,3 +4,8 @@ en:
       blogs: Blogs
     site:
       blogs: Blogs
+  tog_conversatio:
+    member:
+      blog_created: Blog created successfully
+      blog_updated: Blog updated successfully
+      blog_removed: Blog removed successfully

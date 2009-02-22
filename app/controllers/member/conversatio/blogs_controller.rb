@@ -27,7 +27,7 @@ class Member::Conversatio::BlogsController < Member::BaseController
     respond_to do |wants|
       if bs.save
         wants.html do
-          flash[:ok] = 'New blog created.'
+          flash[:ok] = I18n.t('tog_conversatio.member.blog_created')
           redirect_to conversatio_blog_path(@blog)
         end
       else
@@ -45,7 +45,7 @@ class Member::Conversatio::BlogsController < Member::BaseController
     respond_to do |wants|
       if @blog.update_attributes(params[:blog])
         wants.html do
-          flash[:ok]='Blog updated.'
+          flash[:ok]=I18n.t('tog_conversatio.member.blog_updated')
           redirect_to conversatio_blog_path(@blog)
         end
       else
@@ -63,7 +63,7 @@ class Member::Conversatio::BlogsController < Member::BaseController
     @blog.destroy
     respond_to do |wants|
       wants.html do
-        flash[:ok]='Blog deleted.'
+        flash[:ok]=I18n.t('tog_conversatio.member.blog_removed')
         redirect_to member_conversatio_blogs_path
       end
     end
