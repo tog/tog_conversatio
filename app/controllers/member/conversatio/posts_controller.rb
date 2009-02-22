@@ -35,7 +35,7 @@ class Member::Conversatio::PostsController < Member::BaseController
       if @post.save
         @post.send("#{params[:state].to_s}!")
         wants.html do
-          flash[:ok] = 'New post created.'
+          flash[:ok] = I18n.t('tog_conversatio.member.posts.post_created')
           redirect_to member_conversatio_blog_posts_path(@blog)
         end
       else
@@ -55,7 +55,7 @@ class Member::Conversatio::PostsController < Member::BaseController
         @post.update_attribute(:published_at, nil) unless params[:update_published_at]
         @post.send("#{params[:state].to_s}!")
         wants.html do
-          flash[:ok]='Blog post updated.'
+          flash[:ok]=I18n.t('tog_conversatio.member.posts.post_updated')
           redirect_to member_conversatio_blog_posts_path(@post.blog)
         end
       else
@@ -73,7 +73,7 @@ class Member::Conversatio::PostsController < Member::BaseController
 
     respond_to do |wants|
       wants.html do
-        flash[:ok]='Blog post deleted.'
+        flash[:ok]=I18n.t('tog_conversatio.member.posts.post_removed')
         redirect_to member_conversatio_blog_posts_path(@post.blog)
       end
     end

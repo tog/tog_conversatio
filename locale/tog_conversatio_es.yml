@@ -6,6 +6,11 @@ es:
       blogs: Blogs
   tog_conversatio:
     member:
-      blog_created: Blog creado con éxito
-      blog_updated: Blog actualizado con éxito
-      blog_removed: Blog eliminado con éxito            
+      blogs:
+        blog_created: Blog creado con éxito
+        blog_updated: Blog actualizado con éxito
+        blog_removed: Blog eliminado con éxito
+      post:
+        post_created: Post creado con éxito
+        post_updated: Post actualizado con éxito
+        post_removed: Post eliminado con éxito            

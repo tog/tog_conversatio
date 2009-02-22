@@ -27,4 +27,9 @@ class Blog < ActiveRecord::Base
     sql = "%#{query}%"
     Blog.find(:all, :conditions => ["title like ? or description like ?", sql, sql])
   end
+  
+  def creation_date(format=:short)
+    I18n.l(created_at, :format => format)
+  end
+    
 end
