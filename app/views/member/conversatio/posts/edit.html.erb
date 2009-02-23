@@ -1,25 +1,12 @@
-<div class="titleB">Update post in <%= @blog.title %></div>
+<div class="titleB"><%= I18n.t('tog_conversatio.views.member.posts.update_post_in')%> <%= @blog.title %></div>
 
 <%= error_messages_for :post %>
 <% form_for :post, :url => member_conversatio_blog_post_path(@blog, @post), :html => {:method => "put"} do |f| -%>
-  <fieldset>
-    <legend>Metadata</legend>
-    <div class="fields">
-      <p><label for="post_tag_list">Tags (separated with ,)</label><%= f.text_field :tag_list, :class=>"fieldbox wide" -%></p>
-      <p><label for="post_state">Status</label><%= select_tag "state", options_for_select(Post.states, @post.current_state) -%></p>
-      <p><label for="update_published_at"><%= check_box_tag "update_published_at", "1", !@post.published_at.nil? %> Published At</label><%= f.datetime_select :published_at -%></p>
-    </div>
-  </fieldset>
-  <fieldset>
-    <legend>Content</legend>
-    <div class="fields">
-      <p><label for="post_title">Title</label><%= f.text_field :title, :class=>"fieldbox wide" -%></p>
-      <p><label for="post_body">Body</label><%= f.text_area :body, :class=>"fieldbox wide" -%></p>
-    </div>
-  </fieldset>
+
+  <%= render :partial => 'form', :locals => {:f => f}%>
 
   <div class="actions">
-    <%= submit_tag 'Update post', {:class => "button mainaction", :accesskey => "s"} %>
+    <%= submit_tag I18n.t('tog_conversatio.views.member.posts.update_post'), {:class => "button mainaction", :accesskey => "s"} %>
   </div>
 <% end -%>
 

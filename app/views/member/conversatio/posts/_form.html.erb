@@ -1,0 +1,15 @@
+<fieldset>
+  <legend><%= I18n.t('tog_conversatio.model.post.metadata')%></legend>
+  <div class="fields">
+    <p><label for="post_tag_list"><%= I18n.t('tog_conversatio.model.post.tags')%> <%= I18n.t('tog_conversatio.model.post.tags_explanation')%></label><%= f.text_field :tag_list, :class=>"fieldbox wide" -%></p>
+    <p><label for="post_state"><%= I18n.t('tog_conversatio.model.post.status')%></label><%= select_tag "state", options_for_select(Post.states, @post.new_record? ? :draft : @post.current_state) -%></p>
+    <p><label for="update_published_at"><%= check_box_tag "update_published_at", "1", !@post.published_at.nil? %> <%= I18n.t('tog_conversatio.model.post.publish_at')%></label><%= f.datetime_select :published_at -%></p>
+  </div>
+</fieldset>
+<fieldset>
+  <legend><%= I18n.t('tog_conversatio.model.post.content')%></legend>
+  <div class="fields">
+    <p><label for="post_title"><%= I18n.t('tog_conversatio.model.post.title')%></label><%= f.text_field :title, :class=>"fieldbox wide" -%></p>
+    <p><label for="post_body"><%= I18n.t('tog_conversatio.model.post.body')%></label><%= f.text_area :body, :class=>"fieldbox wide" -%></p>
+  </div>
+</fieldset>

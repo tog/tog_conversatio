@@ -5,6 +5,16 @@ en:
     site:
       blogs: Blogs
   tog_conversatio:
+    model:
+      post:
+        metadata: Metadata
+        tags: Tags
+        tags_explanation: (Separated by ,)
+        status: Status
+        publish_at: Publish at
+        content: Content
+        title: Title
+        body: Body
     member:
       blogs:
         blog_created: Blog created successfully
@@ -14,3 +24,11 @@ en:
         post_created: Post created successfully
         post_updated: Post updated successfully
         post_removed: Post removed successfully        
+    views:
+      member:
+        posts:
+          create_post_in: Create post in
+          create_post: Create post
+          update_post_in: Update post in
+          update_post: Update post
+        

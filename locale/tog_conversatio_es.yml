@@ -5,12 +5,29 @@ es:
     site:
       blogs: Blogs
   tog_conversatio:
+    model:
+      post:
+        metadata: Metadatos
+        tags: Etiquetas
+        tags_explanation: (Separadas por ,)
+        status: Estado
+        publish_at: Publicar el
+        content: Contenido
+        title: Título
+        body: Cuerpo 
     member:
       blogs:
         blog_created: Blog creado con éxito
         blog_updated: Blog actualizado con éxito
         blog_removed: Blog eliminado con éxito
-      post:
+      posts:
         post_created: Post creado con éxito
         post_updated: Post actualizado con éxito
-        post_removed: Post eliminado con éxito            
+        post_removed: Post eliminado con éxito        
+    views:
+      member:
+        posts:
+          create_post_in: Crear post en
+          create_post: Crear post    
+          update_post_in: Actualizar post en
+          update_post: Actualizar post
