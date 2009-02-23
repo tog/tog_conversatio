@@ -19,11 +19,11 @@ en:
       blogs:
         blog_created: Blog created successfully
         blog_updated: Blog updated successfully
-        blog_removed: Blog removed successfully
+        blog_removed: Blog deleted successfully
       posts:
         post_created: Post created successfully
         post_updated: Post updated successfully
-        post_removed: Post removed successfully        
+        post_removed: Post deleted successfully        
     views:
       member:
         posts:
