@@ -37,7 +37,7 @@ class Post < ActiveRecord::Base
   state :draft
   state :published, :enter => Proc.new {|p| p.published_at = DateTime.now if p.published_at.nil? }
 
-  event :published do
+  event :publish do
     transitions :from => [:draft] , :to => :published
   end
 

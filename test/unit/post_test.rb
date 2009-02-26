@@ -10,7 +10,7 @@ class PostTest < Test::Unit::TestCase
     setup do
       @economy = Factory(:post, :title => 'Crisis', :body => 'more')
       @country = Factory(:post, :title => 'New country', :body => 'more')
-      @country.published!
+      @country.publish!
     end
     
     should "find one result" do

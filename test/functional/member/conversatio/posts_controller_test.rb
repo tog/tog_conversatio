@@ -21,7 +21,7 @@ class Member::Conversatio::PostsControllerTest < ActionController::TestCase
           @blog = Factory(:blog, :title => 'My Blog', :description => 'Cool description', :author => @member_user)
           @bloggership = Factory(:bloggership, :user => @member_user, :blog => @blog)
           @post = Factory(:post, :title => 'My post', :body => 'bla, bla, bla...', :user => @member_user, :blog => @blog)
-          @post.published!
+          @post.publish!
         end
 
         context "on GET to :index" do
