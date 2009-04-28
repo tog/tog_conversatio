@@ -18,7 +18,7 @@ class Member::Conversatio::BloggershipsController < Member::BaseController
   end
 
   def destroy
-    @bloggership = @blog.bloggerships.destroy(params[:id])
+    @bloggership = @blog.bloggerships.find(params[:id]).destroy
 
     flash[:ok]='Editor deleted.'
     redirect_to member_conversatio_blog_bloggerships_path(@blog)
