@@ -62,17 +62,19 @@ end
 map.routes_from_plugin 'tog_conversatio'
 </pre>
 
-* Create sphinx indexes
+* Creat the tables for tog_conversatio
+
+<pre>
+rake db:migrate
+</pre>
+
+
+* And finally create sphinx indexes
 
 <pre>
 rake thinking_sphinx:index
 </pre>
 
-* And finally...
-
-<pre>
-rake db:migrate
-</pre>
 
 More
 -------
