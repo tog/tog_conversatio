@@ -15,7 +15,7 @@ class Blog < ActiveRecord::Base
   
   acts_as_taggable
   
-  has_many   :posts
+  has_many   :posts,           :dependent => :destroy
   has_many   :published_posts, :class_name => 'Post', :order => 'published_at DESC', :conditions => ['state = ? and published_at <= ?', 'published', DateTime.now]
   has_many   :bloggerships,    :dependent => :destroy
   has_many   :users,           :through => :bloggerships
