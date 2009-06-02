@@ -1,1 +1,1 @@
-<%= link_to "#{sanitize textilize(match.title)}", conversatio_blog_path(match), :title => "#{sanitize(match.title)}" %> (<%=match.published_posts.size %> posts)
+<%= link_to "#{sanitize textilize(match.title)}", conversatio_blog_path(match), :title => "#{sanitize(match.title)}" %> (<%= match.published_posts.until_now.size %> posts)

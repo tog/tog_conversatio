@@ -1,5 +1,6 @@
 Edge
 ----
+* Fix published\_posts
 
 0.4.4
 ----

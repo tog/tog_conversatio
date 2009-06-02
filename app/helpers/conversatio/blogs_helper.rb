@@ -2,13 +2,13 @@ module Conversatio
   module BlogsHelper
 
     def last_posts(blog, limit=5)
-      size = blog.published_posts.size
+      size = blog.published_posts.until_now.size
       if size > 0 and size < limit
-        posts = blog.published_posts[0..size - 1]
+        posts = blog.published_posts.until_now[0..size - 1]
       elsif size > 0
-        posts = blog.published_posts[0..limit - 1]
+        posts = blog.published_posts.until_now[0..limit - 1]
       else
-        posts = blog.published_posts  
+        posts = blog.published_posts.until_now  
       end
       posts
     end

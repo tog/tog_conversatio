@@ -20,6 +20,8 @@ class Post < ActiveRecord::Base
   belongs_to :blog
   belongs_to :user
 
+  named_scope :until, lambda { |param| { :conditions => ['published_at <= ?', param] } }
+
   define_index do
     indexes :title
     indexes :body
@@ -41,6 +43,10 @@ class Post < ActiveRecord::Base
 
   event :draft do
     transitions :from => [:published] , :to => :draft
+  end
+
+  def until_now
+    self.until(DateTime.now)
   end
 
   def owner
