@@ -4,7 +4,7 @@ class Conversatio::PostsController < ApplicationController
 
   def show
     @blog = Blog.find params[:blog_id]
-    @post = @blog.published_posts.until_now.select{|i| i==Post.find(params[:id])}.first
+    @post = @blog.post.published.select{|i| i==Post.find(params[:id])}.first
   end
 
   def by_tag
@@ -14,8 +14,8 @@ class Conversatio::PostsController < ApplicationController
       @order = params[:order] || 'title'
       @page = params[:page] || '1'
       @asc = params[:asc] || 'asc'
-      @posts = Post.find_tagged_with(@tag,
-                    :conditions => ['posts.blog_id=? and posts.state=?', @blog, "published"]
+      @posts = Post.published.find_tagged_with(@tag,
+                    :conditions => ['posts.blog_id=?', @blog]
                     ).paginate :per_page => 10,
                                :page => @page,
                                :order => @order + " " + @asc
@@ -24,7 +24,7 @@ class Conversatio::PostsController < ApplicationController
 
   def all_by_tag
     @tag  =  Tag.find_by_name(params[:tag_name])
-    @posts = Post.find_tagged_with(@tag, :conditions => ['posts.state=?', "published"]) unless @tag.nil?
+    @posts = Post.published.find_tagged_with(@tag) unless @tag.nil?
   end
 
   def archives
@@ -38,10 +38,10 @@ class Conversatio::PostsController < ApplicationController
     to   = DateTime.new(to.year, to.month, -1, 23, 59, 59) if @day.nil?
 
     @blog = Blog.find params[:blog_id]
-    @posts = @blog.published_posts.until_now.paginate :per_page => 10,
-                                                                :page => @page,
-                                                                :conditions => ['published_at between ? and ?', from, to],
-                                                                :order => "published_at desc"
+    @posts = @blog.post.published.paginate :per_page => 10,
+                                           :page => @page,
+                                           :conditions => ['published_at between ? and ?', from, to],
+                                           :order => "published_at desc"
   end
 
 end

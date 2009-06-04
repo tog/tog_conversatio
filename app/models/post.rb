@@ -20,7 +20,7 @@ class Post < ActiveRecord::Base
   belongs_to :blog
   belongs_to :user
 
-  named_scope :until, lambda { |param| { :conditions => ['published_at <= ?', param] } }
+  named_scope :published, lambda { |*args| { :conditions => ['published_at <= ?', args.first || DateTime.now], :order => 'published_at DESC' } }
 
   define_index do
     indexes :title
@@ -45,10 +45,6 @@ class Post < ActiveRecord::Base
     transitions :from => [:published] , :to => :draft
   end
 
-  def until_now
-    self.until(DateTime.now)
-  end
-
   def owner
     user
   end
@@ -60,8 +56,6 @@ class Post < ActiveRecord::Base
   #def self.site_search(query, search_options = {})
   #  search query, :conditions => {:state=>'published'}
   #end
-  
-  named_scope :published, :conditions => {:state => 'published'}
 
   def self.site_search(query, search_options={})
     sql = "%#{query}%"

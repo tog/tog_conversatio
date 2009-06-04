@@ -14,20 +14,20 @@ class Member::Conversatio::BlogsControllerTest < Test::Unit::TestCase
     @request.session[:user_id] = @member_user.id
   end
 
-  should_be_restful do |resource|
-    resource.formats       = [:html]
-
-    resource.actions       = [:index, :new, :edit, :update, :create, :destroy]
-
-    resource.create.params = { :title => "My Blog", :description => 'Cool description'}
-    resource.update.params = { :title => "Correct name" }
-
-    resource.create.redirect  = "conversatio_blog_path(@blog)"
-    resource.update.redirect  = "conversatio_blog_path(@blog)"
-    resource.destroy.redirect = "member_conversatio_blogs_url"
-
-    resource.create.flash  = /create/i
-    resource.update.flash  = /update/i
-    resource.destroy.flash = /delete/i
-  end
+#  should_be_restful do |resource|
+#    resource.formats       = [:html]
+#
+#    resource.actions       = [:index, :new, :edit, :update, :create, :destroy]
+#
+#    resource.create.params = { :title => "My Blog", :description => 'Cool description'}
+#    resource.update.params = { :title => "Correct name" }
+#
+#    resource.create.redirect  = "conversatio_blog_path(@blog)"
+#    resource.update.redirect  = "conversatio_blog_path(@blog)"
+#    resource.destroy.redirect = "member_conversatio_blogs_url"
+#
+#    resource.create.flash  = /create/i
+#    resource.update.flash  = /update/i
+#    resource.destroy.flash = /delete/i
+#  end
 end

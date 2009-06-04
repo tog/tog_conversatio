@@ -2,13 +2,13 @@ module Conversatio
   module BlogsHelper
 
     def last_posts(blog, limit=5)
-      size = blog.published_posts.until_now.size
+      size = blog.posts.published.size
       if size > 0 and size < limit
-        posts = blog.published_posts.until_now[0..size - 1]
+        posts = blog.posts.published[0..size - 1]
       elsif size > 0
-        posts = blog.published_posts.until_now[0..limit - 1]
+        posts = blog.posts.published[0..limit - 1]
       else
-        posts = blog.published_posts.until_now  
+        posts = blog.posts.published  
       end
       posts
     end
@@ -31,7 +31,7 @@ module Conversatio
 
     def tag_cloud_posts(classes)
       return if !@blog
-      tags = @blog.posts.tag_counts(:conditions => ["posts.state='published'"])
+      tags = @blog.posts.published.tag_counts
       return if tags.empty?
       max_count = tags.sort_by(&:count).last.count.to_f
       tags.each do |tag|
@@ -41,7 +41,7 @@ module Conversatio
     end
 
     def tag_cloud_blogs(classes)
-      tags = Post.tag_counts(:conditions => ["posts.state='published'"])
+      tags = Post.published.tag_counts
       return if tags.empty?
       max_count = tags.sort_by(&:count).last.count.to_f
       tags.each do |tag|

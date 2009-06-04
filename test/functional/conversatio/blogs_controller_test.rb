@@ -34,7 +34,7 @@ class Conversatio::BlogsControllerTest < Test::Unit::TestCase
       end
 
       should_assign_to :blog, :equals => '@blog'
-      should_assign_to :posts, :equals => '@blog.published_posts'
+      should_assign_to :posts, :equals => '@blog.posts.published'
 
       should_respond_with :success
       should_render_template :show
