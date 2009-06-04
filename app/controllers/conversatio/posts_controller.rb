@@ -4,7 +4,7 @@ class Conversatio::PostsController < ApplicationController
 
   def show
     @blog = Blog.find params[:blog_id]
-    @post = @blog.post.published.select{|i| i==Post.find(params[:id])}.first
+    @post = @blog.posts.published.select{|i| i==Post.find(params[:id])}.first
   end
 
   def by_tag
@@ -38,7 +38,7 @@ class Conversatio::PostsController < ApplicationController
     to   = DateTime.new(to.year, to.month, -1, 23, 59, 59) if @day.nil?
 
     @blog = Blog.find params[:blog_id]
-    @posts = @blog.post.published.paginate :per_page => 10,
+    @posts = @blog.posts.published.paginate :per_page => 10,
                                            :page => @page,
                                            :conditions => ['published_at between ? and ?', from, to],
                                            :order => "published_at desc"

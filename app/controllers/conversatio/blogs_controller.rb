@@ -5,15 +5,15 @@ class Conversatio::BlogsController < ApplicationController
     @page = params[:page] || '1'
     @asc = params[:asc] || 'asc'
     @blogs = Blog.paginate :per_page => 10,
-                                        :page => @page,
-                                        :order => @order + " " + @asc
+                           :page => @page,
+                           :order => @order + " " + @asc
   end
 
   def show
     @page = params[:page] || '1'
 
     @blog = Blog.find params[:id]
-    @posts = @blog.post.published.paginate :per_page => 10,
+    @posts = @blog.posts.published.paginate :per_page => 10,
                                            :page => @page, 
                                            :order => "published_at desc"
 
