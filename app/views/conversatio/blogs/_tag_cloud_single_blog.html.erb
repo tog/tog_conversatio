@@ -1,5 +1,5 @@
 <div class="portlet portletJ" id="portlet_pluginsTog">
-    <h2><span>Tags on '<%= blog.title %>'</span></h2>
+    <h2><span><%= I18n.t('tog_conversatio.views.blogs.tag_cloud_single_blog.tags_on_blog', :blog_title => blog.title) %></span></h2>
     <div class="portlet_content">
       <ul class="tags">
         <% tag_cloud_posts(%w(l1 l2 l3 l4 l5)) do |tag, css_class| %>

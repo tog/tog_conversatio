@@ -1,4 +1,4 @@
-<div class="titleB">Edit blog</div>
+<div class="titleB"><%= I18n.t('tog_conversatio.views.member.blogs.edit.edit_blog') %></div>
 
 <%= error_messages_for :blog %>
 
@@ -6,14 +6,14 @@
   <fieldset>
     <div class="fields">
       <p>
-        <label for="blog_title">Title</label><%= f.text_field :title, :class=>"fieldbox wide" %>
+        <label for="blog_title"><%= I18n.t('tog_conversatio.views.member.blogs.edit.title') %></label><%= f.text_field :title, :class=>"fieldbox wide" %>
       </p>
       <p>
-        <label for="blog_description">Description</label><%= f.text_area :description, :class=>"fieldbox wide" %>
+        <label for="blog_description"><%= I18n.t('tog_conversatio.views.member.blogs.edit.description') %></label><%= f.text_area :description, :class=>"fieldbox wide" %>
       </p>
     </div>
   </fieldset>
-  <div class="actions"><%= submit_tag 'Update blog', {:class=>"button mainaction", :accesskey => "s"} %></div>
+  <div class="actions"><%= submit_tag I18n.t('tog_conversatio.views.member.blogs.edit.update_blog'), {:class=>"button mainaction", :accesskey => "s"} %></div>
 <% end -%>
 
 

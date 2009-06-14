@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../../test_helper'
 
-class Conversatio::BlogsControllerTest < Test::Unit::TestCase
+class Conversatio::BlogsControllerTest < ActionController::TestCase
 
   context "Given a Blog" do
     setup do
@@ -33,8 +33,8 @@ class Conversatio::BlogsControllerTest < Test::Unit::TestCase
         get :show, :id => @blog.id
       end
 
-      should_assign_to :blog, :equals => '@blog'
-      should_assign_to :posts, :equals => '@blog.posts.published'
+      should_assign_to(:blog) { @blog }
+      should_assign_to(:posts) { @blog.posts.published }
 
       should_respond_with :success
       should_render_template :show

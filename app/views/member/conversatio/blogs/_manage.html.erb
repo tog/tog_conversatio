@@ -1,14 +1,14 @@
 <% if blog.users.include?(current_user)%>
   <div class="portlet portletD" id="portlet_userWall">
-      <h2><span>Manage blog '<%= blog.title -%>'</span></h2>
+      <h2><span><%= I18n.t('tog_conversatio.views.member.blogs.manage.title', :blog_title => blog.title) %></span></h2>
       <div class="portlet_content">
-        <%= link_to 'Edit blog', edit_member_conversatio_blog_path(blog) %>
+        <%= link_to I18n.t('tog_conversatio.views.member.blogs.manage.edit_blog'), edit_member_conversatio_blog_path(blog) %>
         <br/>
-        <%= link_to 'Editors', member_conversatio_blog_bloggerships_url(blog) %>
+        <%= link_to I18n.t('tog_conversatio.views.member.blogs.manage.editors'), member_conversatio_blog_bloggerships_url(blog) %>
         <br/>
-        <%= link_to 'Entries', member_conversatio_blog_posts_path(blog) %>
+        <%= link_to I18n.t('tog_conversatio.views.member.blogs.manage.posts'), member_conversatio_blog_posts_path(blog) %>
         <br/>
-        <%= link_to 'Add post', new_member_conversatio_blog_post_url(blog) %>
+        <%= link_to I18n.t('tog_conversatio.views.member.blogs.manage.add_post'), new_member_conversatio_blog_post_url(blog) %>
       </div>    
   </div>
 <% end %>

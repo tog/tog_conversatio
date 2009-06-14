@@ -1,11 +1,11 @@
 <div class="portlet portletH" id="portlet_groups">
-    <h2><span>Blogs</span></h2>
-    <p><%= link_to 'Create your blog', new_member_conversatio_blog_path, :class => 'button add' %></p> 
+    <h2><span><%= I18n.t('tog_conversatio.views.blogs.index.title') %></span></h2>
+    <p><%= link_to I18n.t('tog_conversatio.views.blogs.index.create_blog'), new_member_conversatio_blog_path, :class => 'button add' %></p> 
     <br/>   
     <div class="portlet_content">
         <ul>
           <% if @blogs.empty? %>
-            <li class="clearfix">There isn't any blogs yet.</li>
+            <li class="clearfix"><%= I18n.t('tog_conversatio.views.blogs.index.not_found') %></li>
           <% else %>          
             <% @blogs.each do |blog| %>
             <li class="clearfix">
@@ -14,11 +14,11 @@
                 </div> 
                 <div class="title"><%= link_to "#{sanitize textilize(blog.title)}", conversatio_blog_path(blog), :title => "#{sanitize(blog.title)}" %></div>
                 <div class="text">
-                  Created by <%= link_to blog.author.profile.full_name, profile_url(blog.author.profile) %>
+                  <%= I18n.t('tog_conversatio.views.blogs.index.created_by') %><%= link_to blog.author.profile.full_name, profile_url(blog.author.profile) %>
                   <br/>
                   <%= blog.description %>
                 </div>
-                <div class="members"><strong><%= blog.posts.published.size %> posts</strong></div>
+                <div class="members"><strong><%=blog.posts.published.size %> <%= I18n.t('tog_conversatio.views.blogs.index.posts') %></strong></div>
             </li>          
             <%end%> 
           <%end%>         

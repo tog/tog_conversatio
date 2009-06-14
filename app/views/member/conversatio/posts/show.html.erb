@@ -1,11 +1,11 @@
-<div class="titleB">Comments: <%= @post.title %></div>
+<div class="titleB"><%= I18n.t('tog_conversatio.views.member.posts.show.comments_post', :post_title => @post.title)%></div>
 <table class="tableB">
   <thead>
     <tr>
-      <th>Author</th>
-      <th>Comment</th>
-      <th nowrap="nowrap">Created at</th>
-      <th>Spam</th>
+      <th><%= I18n.t('tog_conversatio.views.member.posts.show.author') %></th>
+      <th><%= I18n.t('tog_conversatio.views.member.posts.show.comment') %></th>
+      <th nowrap="nowrap"><%= I18n.t('tog_conversatio.views.member.posts.show.created_at') %></th>
+      <th><%= I18n.t('tog_conversatio.views.member.posts.show.spam') %></th>
       <th>&nbsp;</th>
     </tr>
   </thead>
@@ -16,12 +16,12 @@
       <td><%= comment.comment %></td>
       <td nowrap="nowrap"><%= comment.created_at %></td>
       <td><%= comment.spam? %></td>
-      <td><%= link_to "Remove", member_comment_remove_path(comment), {:confirm => 'Are you sure you want to remove this comment?'} -%></td>
+      <td><%= link_to I18n.t('tog_conversatio.views.member.posts.show.remove'), member_comment_remove_path(comment), {:confirm => I18n.t('tog_conversatio.views.member.posts.show.remove_confirm')} -%></td>
     </tr>
     <% end %>
     <% if @comments.blank? %>
       <tr>
-         <td colspan="4">No comments.</td>
+         <td colspan="4"><%= I18n.t('tog_conversatio.views.member.posts.show.not_found') %></td>
       </tr>
     <% end %>
   </tbody>

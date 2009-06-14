@@ -1,11 +1,10 @@
 <div class="detail detail1">
     <!-- <div class="image"><img src="../design/garbage/foto140x140.jpg" alt="Imagen"></div> -->
     <div class="title"><%= link_to "#{sanitize post.title}", conversatio_blog_post_path(blog, post), :title => "#{sanitize post.title}" %></div>
-    <div class="subtitle">Posted <%= time_ago_in_words post.published_at %> ago by <%= post.owner.profile.full_name %></div>
+    <div class="subtitle"><%= I18n.t('tog_conversatio.views.posts.list_detail.posted_time_ago_by_author', :time => time_ago_in_words(post.published_at), :author => post.owner.profile.full_name) %></div>
     <div class="summary"><%= render :partial => 'conversatio/posts/tags', :locals => { :post => post } %></div>
     <div class="text"><%= sanitize(textilize(post.body), :tags => (Tog::Plugins.settings :tog_core, 'sanitized.allowed_tags').split, :attributes => (Tog::Plugins.settings :tog_core, 'sanitized.allowed_attributes').split) %></div>
-
     <div class="portlet portletC">
-        <%= "Comments (#{post.comments.size})" %> | <%= link_to 'Add a Comment', conversatio_blog_post_path(blog, post), :title => "Leaving A Comment On #{h post.title}" %>
+        <%= I18n.t('tog_conversatio.views.posts.comments.comments', :size => post.comments.size) %> | <%= link_to I18n.t('tog_conversatio.views.posts.comments.add_comment'), conversatio_blog_post_path(blog, post), :title => I18n.t('tog_conversatio.views.posts.comments.comment_title', :post_title => h(post.title)) %>
     </div>
 </div> <!-- /.detail1 -->

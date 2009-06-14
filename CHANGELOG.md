@@ -1,6 +1,12 @@
 Edge
 ----
 
+* Support for Rails 2.3.2 (kudos to Andrei Erdoss)
+* Renamed AASM transtitions to verbs (kudos to Balint Erdi)
+* (almost) Full i18n (kudos to Andrei Erdoss)
+* Renamed routes.rb to desert_routes.rb (Rails 2.3 + desert 0.5 support)
+
+
 0.5.0
 ----
 * Fix published\_posts

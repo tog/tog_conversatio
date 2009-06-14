@@ -25,10 +25,110 @@ en:
         post_updated: Post updated successfully
         post_removed: Post deleted successfully        
     views:
+      blogs:
+        archive:
+          title: Archive
+        index:
+          title: Blogs
+          create_blog: Create blog
+          not_found: There aren't any blogs yet.
+          created_by: Created by
+          posts: posts
+        show:
+          last_posts: Last entries
+          posts_not_found: There aren't any posts on this blog yet.
+        tag_cloud_blogs:
+          all_tags: Tags in all blogs
+        tag_cloud_single_blog:
+          tags_on_blog: Tags on {{blog_title}}
+      posts:
+        comments:
+          comments: Comments ({{size}})
+          add_comment: Add comment
+          comment_title: Leaving A Comment On {{post_title}}
+        all_by_tag:
+          title: Posts tagged with {{tag_name}}
+          not_found: has no blog posts with selected tag.
+          posted_in: Posted {{time}} in
+        by_tag:
+          title: Posts tagged with {{tag}}
+          not_found: There are no posts in this blog tagged with {{tag}}
+          posts_to_of: Posts {{start}} to {{end}} of {{page}}
+        archives:
+          not_found: There are no posts in this blog for the specified date.
+          archive_of: Archive of
+        list_detail:
+          posted_time_ago_by_author: Posted {{time}} ago by {{author}}
+        show:
+          posted: Posted {{time}}
+        tags:
+          title: Tags
+          not_found: No tags associated
       member:
+        bloggerships:
+          index:
+            select: Select...
+            friends: Friends
+            followers: Followers
+            followings: Followings
+            name: Name
+            add_editor: Add Editor
+            remove: Remove
+            remove_confirm: Are you sure you want to remove this editor?
+            editors: Editors
+            blog_editors: "{{blog}} editors"
+        blogs:
+          index:
+            title: Your blogs
+            create_your_blog: Create your blog
+            blog_title: Title
+            blog_posts: Posts
+            blog_created_at: Created at
+            add_post: Add Post
+            add_post_title: Create a new post on this blog
+            manage_editors: Manage Editors
+            manage_editors_title: Manage editors on this blog
+            blog: blog
+          new:
+            create_blog: Create blog
+            title: Blog title
+            description: Blog description
+          blogs:
+            your_blogs: Your blogs
+            posts: Posts
+            create_new_blog: Create new blog
+          edit:
+            edit_blog: Edit blog
+            title: Blog title
+            description: Blog description
+            update_blog: Update blog
+          manage:
+            title: Manage blog '{{blog_title}}'
+            edit_blog: Edit blog
+            editors: Editors
+            posts: Posts
+            add_post: Add post
         posts:
-          create_post_in: Create post in
-          create_post: Create post
-          update_post_in: Update post in
-          update_post: Update post
-        
+          index:
+            posts_in_blog: Posts in {{blog_title}}
+            create_post: Create Post
+            create_post_title: Create a new post on this blog
+            title: Title
+            status: Status
+            comments: Comments
+            created_at: Created at
+            post: post
+          edit:
+            update_post_in_blog: Update post in {{blog_title}}
+            update_post: Update post
+          new:
+            create_post: Create Post
+            create_post_title: Create a new post on this blog
+          show:
+            comments_post: Comments {{post_title}}
+            author: Author
+            comment: Comment
+            created_at: Created at
+            remove: Remove
+            remove_confirm: Are you sure you want to remove this comment?
+            not_found: No comments.

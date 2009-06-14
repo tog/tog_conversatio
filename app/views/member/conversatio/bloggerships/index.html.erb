@@ -1,22 +1,22 @@
-<h2><span><%= @blog.title %> editors</span></h2>
+<h2><span><%= I18n.t('tog_conversatio.views.member.bloggerships.index.blog_editors', :blog => @blog.title) %></span></h2>
 
 
       <% form_for :bloggership, :url => member_conversatio_blog_bloggerships_path(@blog) do |f| %>
           <select name="bloggership[user_id]" id="bloggership_user_id" class="fieldbox">
             <option value="0">
-               Select...
+              <%= I18n.t('tog_conversatio.views.member.bloggerships.index.select') %>
             </option>
-            <optgroup label="Friends">
+            <optgroup label="<%= I18n.t('tog_conversatio.views.member.bloggerships.index.friends') %>">
                <%= options_from_collection_for_select(current_user.profile.friends, "user_id", "full_name") %>
             </optgroup>
-            <optgroup label="Followers">
+            <optgroup label="<%= I18n.t('tog_conversatio.views.member.bloggerships.index.followers') %>">
                <%= options_from_collection_for_select(current_user.profile.followers, "user_id", "full_name") %>
             </optgroup>
-            <optgroup label="Followings">
+            <optgroup label="<%= I18n.t('tog_conversatio.views.member.bloggerships.index.followings') %>">
                <%= options_from_collection_for_select(current_user.profile.followings, "user_id", "full_name") %>
             </optgroup>
          </select>
-         <%= submit_tag 'Add editor', :class => "button mainaction" %>
+         <%= submit_tag I18n.t('tog_conversatio.views.member.bloggerships.index.add_editor'), :class => "button mainaction" %>
       <% end %>
   
 
@@ -25,14 +25,14 @@
 <table class="tableB">
   <thead>
       <tr>
-      <th scope="col">Name</th>
+      <th scope="col"><%= I18n.t('tog_conversatio.views.member.bloggerships.index.name') %></th>
       <th scope="col">&nbsp;</th>
     </tr>
   </thead>
   <tfoot>
     <tr>
       <td colspan="4" class="info_results">
-        <span class="info_items"><%= page_entries_info @bloggerships, :entry_name => 'Editors' %></span>
+        <span class="info_items"><%= page_entries_info @bloggerships, :entry_name => I18n.t('tog_conversatio.views.member.bloggerships.index.editors') %></span>
         <span class="pages_navigation right">
           <%= will_paginate @bloggerships, :container => false %>
         </span>
@@ -45,7 +45,7 @@
       <td><%= bloggership.user.login %></td>
       <td>
         <% form_for :bloggership, :url => member_conversatio_blog_bloggership_path(@blog, bloggership), :html => {:method => :delete} do |f| %>
-          <%= submit_tag 'Remove', :class => "button mainaction", :confirm => 'Are you sure you want to remove this editor?' %>
+          <%= submit_tag I18n.t('tog_conversatio.views.member.bloggerships.index.remove'), :class => "button mainaction", :confirm => I18n.t('tog_conversatio.views.member.bloggerships.index.remove_confirm') %>
         <% end %>
       </td>
     </tr>

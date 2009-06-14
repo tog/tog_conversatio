@@ -12,12 +12,12 @@
 </h2>
 
 <div class="portlet portletB">
-    <h2><span>Posts tagged with '<%=@tag%>'</span></h2>
+    <h2><span><%= I18n.t('tog_conversatio.views.posts.by_tag.title', :tag => @tag) %></span></h2>
 
     <div class="portlet_content"> 
         <ul>
           <% if @posts.empty? %>
-            <li class="clearfix">There isn't any entries on this blog tagged with '<%=@tag%>'.
+            <li class="clearfix"><%= I18n.t('tog_conversatio.views.posts.by_tag.not_found', :tag => @tag) %>
           <% else %>
               <% @posts.each do |post| %>
                 <%= render :partial => '/conversatio/posts/list_detail', :locals => { :blog => @blog, :post => post } %>
@@ -29,8 +29,7 @@
 <% if !@posts.empty? %>
   <div class="info_results">
       <span class="info_items">
-        Posts <%=@posts.size > 0 ? (@posts.offset + 1) : '0'%> to 
-              <%=@posts.size + @posts.offset%> of <%=@posts.total_entries%>
+        <%= I18n.t('tog_conversatio.views.posts.by_tag.posts_to_of', :start => @posts.size > 0 ? (@posts.offset + 1) : '0', :end => @posts.size + @posts.offset, :page => @posts.total_entries) %>
       </span>
       <span class="pages_navigation right">
           <%= will_paginate @posts %>

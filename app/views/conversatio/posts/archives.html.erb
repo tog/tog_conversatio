@@ -7,11 +7,11 @@
 <h1><%= @blog.title -%> <%=link_to image_tag ('/tog_core/images/ico/rss.gif', :alt => 'sindicate'), formatted_conversatio_blog_url(@blog, :atom), :class => 'rss'%></h1>
 
 <% if @posts.empty? %>
-  <p>this blog has no blog posts in the specified date.</p>
+  <p><%= I18n.t('tog_conversatio.views.posts.archives.not_found') %></p>
 <% else %>
 
   <div class="portlet portletB">
-      <h2><span>Archive of <%=@year %>/<%= @month unless @month.nil? %><%= "/#{@day}" unless @day.nil? %></span></h2>
+      <h2><span><%= I18n.t('tog_conversatio.views.posts.archives.archive_of') %> <%= @year %><%= "/#{@month}" unless @month.nil? %><%= "/#{@day}" unless @day.nil? %></span></h2>
       <div class="portlet_content"> 
           <ul>
               <% @posts.each do |post| %>

@@ -25,9 +25,110 @@ es:
         post_updated: Post actualizado con éxito
         post_removed: Post eliminado con éxito        
     views:
+      blogs:
+        archive:
+          title: Archivos
+        index:
+          title: Blogs
+          create_blog: Crear blog
+          not_found: Aún no hay ningún blog
+          created_by: Creado por
+          posts: posts
+        show:
+          last_posts: Últimas entradas
+          posts_not_found: Aún no hay entradas en este blog.
+        tag_cloud_blogs:
+          all_tags: Etiquetas en todos los blog
+        tag_cloud_single_blog:
+          tags_on_blog: Etiquetas en {{blog_title}}
+      posts:
+        comments:
+          comments: Comentarios ({{size}})
+          add_comment: Añadir comentario
+          comment_title: Dejar comentario en {{post_title}}
+        all_by_tag:
+          title: Posts etiquetados con {{tag_name}}
+          not_found: no hay postcon esa etiqueta.
+          posted_in: Publicado el {{time}}
+        by_tag:
+          title: Post etiquetados con {{tag}}
+          not_found: No hay post en este blog etiquetados con {{tag}}
+          posts_to_of: Posts {{start}} a {{end}} de {{page}}
+        archives:
+          not_found: No hay posts en este blog para la fecha especificada.
+          archive_of: Archivos de
+        list_detail:
+          posted_time_ago_by_author: Publicado hace {{time}} por {{author}}
+        show:
+          posted: Publicado {{time}}
+        tags:
+          title: Etiquetas
+          not_found: No hay etiquetas asociadas
       member:
+        bloggerships:
+          index:
+            select: Seleccionar...
+            friends: Amigos
+            followers: Seguidores
+            followings: Seguidos
+            name: Nombre
+            add_editor: Añadir editor
+            remove: Eliminar
+            remove_confirm: ¿Estas seguro de querer eliminar este editor?
+            editors: Editores
+            blog_editors: "Editores de {{blog}}"
+        blogs:
+          index:
+            title: Tus blogs
+            create_your_blog: Crar un blog
+            blog_title: Título
+            blog_posts: Posts
+            blog_created_at: Creado e
+            add_post: Añadir post
+            add_post_title: Crear un nuevo post en este blog
+            manage_editors: Gestionar editores
+            manage_editors_title: Gestionar editores de este blog
+            blog: blog
+          new:
+            create_blog: Crear blog
+            title: Título
+            description: Descripción
+          blogs:
+            your_blogs: Tus blogs
+            posts: Posts
+            create_new_blog: Crear un nuevo blog
+          edit:
+            edit_blog: Editar blog
+            title: Título
+            description: Descripción
+            update_blog: Actualizar
+          manage:
+            title: Gestionar blog '{{blog_title}}'
+            edit_blog: Editar blog
+            editors: Editores
+            posts: Posts
+            add_post: Añadir post
         posts:
-          create_post_in: Crear post en
-          create_post: Crear post    
-          update_post_in: Actualizar post en
-          update_post: Actualizar post
+          index:
+            posts_in_blog: Posts en {{blog_title}}
+            create_post: Crear post
+            create_post_title: Crear un nuevo post en este blog
+            title: Título
+            status: Estado
+            comments: Comentarios
+            created_at: Creado el
+            post: post
+          edit:
+            update_post_in_blog: Actualizar post en {{blog_title}}
+            update_post: Actualizar
+          new:
+            create_post: Crear post
+            create_post_title: Crear un nuevo post en este blog
+          show:
+            comments_post: Comentarios en {{post_title}}
+            author: Autor
+            comment: Comentario
+            created_at: Creado el
+            remove: Eliminar
+            remove_confirm: ¿Está seguro de querer eliminar este comentario?
+            not_found: Sin comentarios.

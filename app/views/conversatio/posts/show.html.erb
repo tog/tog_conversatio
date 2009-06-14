@@ -1,6 +1,6 @@
 <div id="post_<%= @post.id %>" class="border_top">
   <h1><%= link_to @blog.title, conversatio_blog_path(@blog) -%> / <%= sanitize @post.title %></h1>
-  <div>Posted <%= time_ago_in_words @post.published_at %></div>
+  <div><%= I18n.t('tog_conversatio.views.posts.show.posted', :time => time_ago_in_words(@post.published_at)) %></div>
   <%= render :partial => 'tags', :locals => { :post => @post } %>
   <div><%= sanitize(textilize(@post.body), :tags => (Tog::Plugins.settings :tog_core, 'sanitized.allowed_tags').split, :attributes => (Tog::Plugins.settings :tog_core, 'sanitized.allowed_attributes').split) %></div>
   <br/>

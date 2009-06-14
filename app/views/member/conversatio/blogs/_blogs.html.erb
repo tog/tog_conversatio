@@ -1,6 +1,6 @@
 <% if logged_in? %>
   <div class="portlet portletD" id="portlet_userWall">
-      <h2><span>Your blogs</span></h2>
+      <h2><span><%= I18n.t('tog_conversatio.views.member.blogs.blogs.your_blogs') %></span></h2>
       <div class="portlet_content">
         <ul>
           <% current_user.blogs.each do |blog| %>
@@ -8,14 +8,14 @@
             <li class="clearfix">
                 <div class="text">
                     <%= link_to blog.title, conversatio_blog_path(blog) %>
-                    <small><%= link_to 'entries', member_conversatio_blog_posts_path(blog) %> </small>
+                    <small><%= link_to I18n.t('tog_conversatio.views.member.blogs.blogs.posts'), member_conversatio_blog_posts_path(blog) %> </small>
                 </div>
             </li>
             <% end -%>      
           <% end -%>
         </ul>
         <br/>
-        <%= link_to 'Create a new blog', new_member_conversatio_blog_path, :class => 'add' %>
+        <%= link_to I18n.t('tog_conversatio.views.member.blogs.blogs.create_new_blog'), new_member_conversatio_blog_path, :class => 'add' %>
       </div>    
   </div>
 <% end -%>

@@ -7,7 +7,7 @@ class Member::Conversatio::BloggershipsControllerTest < ActionController::TestCa
       setup do
         get :index, :id => 1
       end
-      should_redirect_to "new_session_path"
+      should_redirect_to('new session path') {new_session_path}
     end
 
     context "with a logged user" do
@@ -30,7 +30,7 @@ class Member::Conversatio::BloggershipsControllerTest < ActionController::TestCa
           end
 
           should_respond_with :success
-          should_assign_to :bloggerships, :equals => '@blog.bloggerships'
+          should_assign_to(:bloggerships) { @blog.bloggerships }
           should_render_template :index
         end
 
@@ -43,12 +43,11 @@ class Member::Conversatio::BloggershipsControllerTest < ActionController::TestCa
             assert_equal(@blog.id, assigns(:bloggership).blog_id)
           end
 
-          should_assign_to :blog, :equals => '@blog'
-          should_assign_to :bloggership, :equals => "Bloggership.find(@bloggerships_created.id)"
+          should_assign_to(:blog) { @blog }
+          should_assign_to(:bloggership) { Bloggership.find(@bloggerships_created.id) }
           should_set_the_flash_to /add/i
-          should_redirect_to "member_conversatio_blog_bloggerships_path(@blog)"
+          should_redirect_to('member conversatio blog bloggerships') {member_conversatio_blog_bloggerships_path(@blog)}
         end
-
 
         context "on DELETE to :destroy" do
           setup do
@@ -57,7 +56,7 @@ class Member::Conversatio::BloggershipsControllerTest < ActionController::TestCa
           end
 
           should_set_the_flash_to /deleted/i
-          should_redirect_to "member_conversatio_blog_bloggerships_path(@blog)"
+          should_redirect_to('member conversatio blog bloggerships') {member_conversatio_blog_bloggerships_path(@blog)}
         end
       end
     end

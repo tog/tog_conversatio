@@ -1,4 +1,4 @@
-<div class="titleB"><%= I18n.t('tog_conversatio.views.member.posts.update_post_in')%> <%= @blog.title %></div>
+<div class="titleB"><%= I18n.t('tog_conversatio.views.member.posts.edit.update_post_in_blog', :blog_title => @blog.title)%></div>
 
 <%= error_messages_for :post %>
 <% form_for :post, :url => member_conversatio_blog_post_path(@blog, @post), :html => {:method => "put"} do |f| -%>
@@ -6,7 +6,7 @@
   <%= render :partial => 'form', :locals => {:f => f}%>
 
   <div class="actions">
-    <%= submit_tag I18n.t('tog_conversatio.views.member.posts.update_post'), {:class => "button mainaction", :accesskey => "s"} %>
+    <%= submit_tag I18n.t('tog_conversatio.views.member.posts.edit.update_post'), {:class => "button mainaction", :accesskey => "s"} %>
   </div>
 <% end -%>
 

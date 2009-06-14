@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../../test_helper'
 
-class Conversatio::PostsControllerTest < Test::Unit::TestCase
+class Conversatio::PostsControllerTest < ActionController::TestCase
 
   context "Given a Post" do
     setup do

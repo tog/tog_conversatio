@@ -1,9 +1,9 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class PostTest < Test::Unit::TestCase
+class PostTest < ActiveSupport::TestCase
   should_belong_to :blog, :user
   
-  should_require_attributes :title, :body
+  should_validate_presence_of :title, :body
   
   context "A Post" do
     
