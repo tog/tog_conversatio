@@ -5,6 +5,7 @@ Edge
 * Renamed AASM transtitions to verbs (kudos to Balint Erdi)
 * (almost) Full i18n (kudos to Andrei Erdoss)
 * Renamed routes.rb to desert_routes.rb (Rails 2.3 + desert 0.5 support)
+* New installation template
 
 
 0.5.0

@@ -1,7 +1,7 @@
 Conversatio
 ===========
 
-A simple blog system.
+A simple blog system. Rails 2.3 required.
 
 == Included functionality
 
@@ -15,65 +15,10 @@ A simple blog system.
 Resources
 =========
 
-Plugin requirements
--------------------
-
-In case you haven't installed any of them previously you'll need the following plugins:
-
-* [thinking-sphinx](https://github.com/tog/tog/wikis/3rd-party-plugins-thinking-sphinx)
-* [acts\_as\_commentable](https://github.com/tog/tog/wikis/3rd-party-plugins-acts_as_commentable)
-* [seo\_urls](https://github.com/tog/tog/wikis/3rd-party-plugins-seo_urls)
-* [acts\_as\_taggable\_on\_steroids](https://github.com/tog/tog/wikis/3rd-party-plugins-acts_as_taggable_on_steroids)
-
-Follow each link above for a short installation guide incase you have to install them.
-
 Install
 -------
 
-* Install plugin form source:
-
-<pre>
-ruby script/plugin install git://github.com/tog/tog_conversatio.git
-</pre>
-
-* Generate installation migration:
-
-<pre>
-ruby script/generate migration install_conversatio
-</pre>
-
-with the following content:
-
-<pre>
-class InstallConversatio < ActiveRecord::Migration
-  def self.up
-    migrate_plugin "tog_conversatio", 5 
-  end
-
-  def self.down
-    migrate_plugin "tog_conversatio", 0
-  end
-end
-</pre>
-
-* Add conversatio's routes to your application's config/routes.rb
-
-<pre>
-map.routes_from_plugin 'tog_conversatio'
-</pre>
-
-* Creat the tables for tog_conversatio
-
-<pre>
-rake db:migrate
-</pre>
-
-
-* And finally create sphinx indexes
-
-<pre>
-rake thinking_sphinx:index
-</pre>
+rake rails:template LOCATION=http://tr.im/tog_conversatio_0_5_1
 
 
 More
@@ -84,4 +29,4 @@ More
 [https://github.com/tog/tog_conversatio/wikis](https://github.com/tog/tog_conversatio/wikis)
 
 
-Copyright (c) 2008 Keras Software Development, released under the MIT license
+Copyright (c) 2008-2009 Keras Software Development, released under the MIT license
