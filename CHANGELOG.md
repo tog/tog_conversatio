@@ -6,6 +6,8 @@ Edge
 * (almost) Full i18n (kudos to Andrei Erdoss)
 * Renamed routes.rb to desert_routes.rb (Rails 2.3 + desert 0.5 support)
 * New installation template
+* Fixed bug in archive listing
+* Cascade delete for post when a blog is destroyed
 
 
 0.5.0
