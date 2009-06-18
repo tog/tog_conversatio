@@ -21,7 +21,7 @@ module Conversatio
         if @year
           html << "<ul>"
           for m in 1..12
-            html << "<li>#{link_to(I18n.t('date.abbr_month_names[3]'), monthly_archives_conversatio_blog_posts_path(@blog, year, m))}</li>"
+            html << "<li>#{link_to(I18n.t('date.abbr_month_names')[m], monthly_archives_conversatio_blog_posts_path(@blog, year, m))}</li>"
           end
           html << "</ul>"
         end
