@@ -10,9 +10,9 @@ class Member::Conversatio::BloggershipsController < Member::BaseController
     u = User.find(params[:bloggership][:user_id])
     if current_user.profile.is_related_to?(u.profile)
       @bloggership = u.bloggerships.create(:blog => @blog)
-      flash[:ok]='Editor added successfully.'
+      flash[:ok]= I18n.t("tog_conversatio.member.bloggerships.editor_added")
     else
-      flash[:error]='The user selected should be related with you.'
+      flash[:error]=I18n.t("tog_conversatio.member.bloggerships.user_not_related")
     end
     redirect_to member_conversatio_blog_bloggerships_path(@blog)
   end
@@ -20,7 +20,7 @@ class Member::Conversatio::BloggershipsController < Member::BaseController
   def destroy
     @bloggership = @blog.bloggerships.find(params[:id]).destroy
 
-    flash[:ok]='Editor deleted.'
+    flash[:ok]=I18n.t("tog_conversatio.member.bloggerships.editor_deleted")
     redirect_to member_conversatio_blog_bloggerships_path(@blog)
   end
 
@@ -29,7 +29,7 @@ class Member::Conversatio::BloggershipsController < Member::BaseController
     def find_blog
       @blog = Blog.find(params[:blog_id])
       unless @blog.author == current_user
-        flash[:error]="Only blog's author can do this"
+        flash[:error]=I18n.t("tog_conversatio.member.bloggerships.author_only")
         redirect_back_or_default(member_conversatio_blogs_path)
       end
     end
