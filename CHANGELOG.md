@@ -1,6 +1,9 @@
 Edge
 ----
 
+0.5.1
+----
+
 * Support for Rails 2.3.2 (kudos to Andrei Erdoss)
 * Renamed AASM transtitions to verbs (kudos to Balint Erdi)
 * (almost) Full i18n (kudos to Andrei Erdoss)
