@@ -6,6 +6,9 @@ en:
       blogs: Blogs
   tog_conversatio:
     model:
+      states:
+        draft: Draft
+        published: Published
       post:
         metadata: Metadata
         tags: Tags

@@ -3,7 +3,7 @@ module Conversatio
 
     def select_post_state_tag(post)
       default_state = !post.new_record? && post.current_state == :published ? "publish" : "draft"
-      options = [[ "draft", "draft" ], [ "published", "publish" ]]
+      options = [[ I18n.t('tog_conversatio.model.states.draft'), "draft" ], [ I18n.t('tog_conversatio.model.states.published'), "publish" ]]
       select_tag("state", options_for_select(options.uniq, default_state))
     end
     
