@@ -8,6 +8,7 @@ Edge
 * New installation template
 * Fixed bug in archive listing
 * Cascade delete for post when a blog is destroyed
+* Fixed bug with post's state handling
 
 
 0.5.0

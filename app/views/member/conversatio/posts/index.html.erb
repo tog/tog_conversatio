@@ -24,7 +24,7 @@
     <tr<%= cycle(' class="pair"', '') -%>>
       <td><%= link_to post.title, edit_member_conversatio_blog_post_path(@blog, post) %></td>
       <td><%= post.state %></td>
-      <td><%= link_to "##{post.all_comments.size}", member_conversatio_blog_post_path(@blog, post) %></td>
+      <td><%= link_to "##{post.comments.size}", member_conversatio_blog_post_path(@blog, post) %></td>
       <td><%= post.creation_date %></td>
     </tr>
     <% end %>

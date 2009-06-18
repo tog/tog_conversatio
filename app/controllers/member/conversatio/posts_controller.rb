@@ -18,7 +18,7 @@ class Member::Conversatio::PostsController < Member::BaseController
   end
 
   def new
-    @post = @blog.posts.new
+    @post = @blog.posts.new(:state => :draft)
   end
 
   def edit

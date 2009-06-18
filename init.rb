@@ -11,6 +11,7 @@ Tog::Interface.sections(:site).add "Blogs", "/blogs"
 
 Tog::Interface.sections(:member).add "Blogs", "/member/conversatio/blogs"
 
+Tog::Plugins.helpers Conversatio::PostsHelper
 Tog::Plugins.helpers Conversatio::BlogsHelper
 
 Tog::Search.sources << "Post"
