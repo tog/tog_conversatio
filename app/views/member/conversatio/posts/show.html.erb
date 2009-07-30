@@ -12,7 +12,7 @@
   <tbody>
     <% for comment in @comments %>
     <tr<%= cycle('',' class="pair"') -%>>
-      <td><%= comment.user.login %></td>
+      <td><%= comment_user_name(comment) %></td>
       <td><%= comment.comment %></td>
       <td nowrap="nowrap"><%= comment.created_at %></td>
       <td><%= comment.spam? %></td>
@@ -21,7 +21,7 @@
     <% end %>
     <% if @comments.blank? %>
       <tr>
-         <td colspan="4"><%= I18n.t('tog_conversatio.views.member.posts.show.not_found') %></td>
+         <td colspan="5"><%= I18n.t('tog_conversatio.views.member.posts.show.not_found') %></td>
       </tr>
     <% end %>
   </tbody>

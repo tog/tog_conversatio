@@ -1,5 +1,6 @@
 Edge
 ----
+* Use "comment_user_name(comment)" instead of "comment.user.login"
 
 0.5.3
 ----
