@@ -1,6 +1,9 @@
 Edge
 ----
 
+* Destroy posts when deleting blog (kudos to Andrei Erdoss)
+* I18n for bloggerships management (kudos to Andrei Erdoss)
+
 0.5.4
 ----
 * Use "comment_user_name(comment)" instead of "comment.user.login"

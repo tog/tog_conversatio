@@ -26,7 +26,12 @@ es:
       posts:
         post_created: Post creado con éxito
         post_updated: Post actualizado con éxito
-        post_removed: Post eliminado con éxito        
+        post_removed: Post eliminado con éxito    
+      bloggerships:
+        editor_added: Editor añadido con éxito
+        user_not_related: El usuario seleccionado debe estar relacionado contigo
+        editor_deleted: Editor eliminado
+        author_only: Sólo el autor del blog puede hacer eso            
     views:
       blogs:
         archive:
