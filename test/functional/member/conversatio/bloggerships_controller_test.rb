@@ -55,7 +55,7 @@ class Member::Conversatio::BloggershipsControllerTest < ActionController::TestCa
             assert_nil Bloggership.find_by_id(assigns(:bloggership).id)
           end
 
-          should_set_the_flash_to /deleted/i
+          should_set_the_flash_to /removed/i
           should_redirect_to('member conversatio blog bloggerships') {member_conversatio_blog_bloggerships_path(@blog)}
         end
       end
