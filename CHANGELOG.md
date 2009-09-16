@@ -3,6 +3,8 @@ Edge
 
 * Destroy posts when deleting blog (kudos to Andrei Erdoss)
 * I18n for bloggerships management (kudos to Andrei Erdoss)
+* index method in conversatio/posts_controller with redirect to blog to avoid calls to post's index
+* removed deprecation warnings caused by using formatted_conversatio_blog_url
 
 0.5.4
 ----

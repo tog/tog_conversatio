@@ -1,6 +1,10 @@
 class Conversatio::PostsController < ApplicationController
 
   helper 'conversatio/blogs'
+  
+  def index
+    redirect_to conversatio_blog_path Blog.find params[:blog_id]
+  end
 
   def show
     @blog = Blog.find params[:blog_id]
