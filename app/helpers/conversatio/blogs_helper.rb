@@ -41,7 +41,7 @@ module Conversatio
     end
 
     def tag_cloud_blogs(classes)
-      tags = Post.tag_counts(:conditions => ['published_at <= ?', DateTime.now])
+      tags = Post.published.tag_counts
       #FIXME : this doesn't work as expected. Join query isn't been built correctly
       #tags = Post.published.tag_counts
       return if tags.empty?
