@@ -1,6 +1,5 @@
 require_plugin 'tog_core'
-require_plugin 'seo_urls'
-require_plugin 'thinking-sphinx'
+#require_plugin 'thinking-sphinx'
 
 require "i18n" unless defined?(I18n)
 Dir[File.dirname(__FILE__) + '/locale/**/*.yml'].each do |file|

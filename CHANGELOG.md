@@ -5,6 +5,8 @@ Edge
 * I18n for bloggerships management (kudos to Andrei Erdoss)
 * index method in conversatio/posts_controller with redirect to blog to avoid calls to post's index
 * removed deprecation warnings caused by using formatted_conversatio_blog_url
+* Migrated from acts_as_state_machine to AASM gem
+
 
 0.5.4
 ----

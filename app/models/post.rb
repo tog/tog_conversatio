@@ -32,16 +32,17 @@ class Post < ActiveRecord::Base
 
   validates_presence_of :title, :body
 
-  acts_as_state_machine :initial => :draft
+  include AASM
+  aasm_column :state
+  aasm_initial_state :draft
 
-  state :draft
-  state :published, :enter => Proc.new {|p| p.published_at = DateTime.now if p.published_at.nil? }
+  aasm_state :draft
+  aasm_state :published, :enter => Proc.new {|p| p.published_at = DateTime.now if p.published_at.nil? }
 
-  event :publish do
+  aasm_event :publish do
     transitions :from => [:draft] , :to => :published
   end
-
-  event :draft do
+  aasm_event :draft do
     transitions :from => [:published] , :to => :draft
   end
 

@@ -109,7 +109,7 @@ class Member::Conversatio::PostsControllerTest < ActionController::TestCase
 
         context "on PUT to :update without correct data" do
           setup do
-            put :update, :blog_id => @blog.id, :id => @post.id, :post => { :title => nil, :body => 'Body changed' }, :state => 'published'
+            put :update, :blog_id => @blog.id, :id => @post.id, :post => { :title => nil, :body => 'Body changed' }, :state => 'publish'
           end
           
           should_set_the_flash_to /failed/i

@@ -13,7 +13,7 @@ class Conversatio::BlogsControllerTest < ActionController::TestCase
       @bloggership = Factory(:bloggership, :user => @member_user, :blog => @blog)
       @post = Factory(:post, :title => 'My post', :body => 'bla, bla, bla...', :user => @member_user, :blog => @blog)
       @post.publish!
-      Factory(:post, :title => 'My draft post', :body => 'bla, bla, bla...', :user => @member_user, :blog => @blog).draft!
+      Factory(:post, :title => 'My draft post', :body => 'bla, bla, bla...', :user => @member_user, :blog => @blog)
     end
 
     context "on GET to :index" do
@@ -29,7 +29,7 @@ class Conversatio::BlogsControllerTest < ActionController::TestCase
 
     context "on GET to :show" do
       setup do
-        Factory(:post, :title => 'Other post', :body => 'bla, bla, bla...', :user => @member_user, :blog => @blog).draft!
+        Factory(:post, :title => 'Other post', :body => 'bla, bla, bla...', :user => @member_user, :blog => @blog)
         get :show, :id => @blog.id
       end
 

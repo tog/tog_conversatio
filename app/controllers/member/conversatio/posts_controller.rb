@@ -33,7 +33,7 @@ class Member::Conversatio::PostsController < Member::BaseController
 
     respond_to do |wants|
       if @post.save
-        @post.send("#{params[:state].to_s}!")
+        @post.send("#{params[:state].to_s}!") if @post.aasm_events_for_current_state.map{|e| e.to_s}.include?("#{params[:state]}")
         wants.html do
           flash[:ok] = I18n.t('tog_conversatio.member.posts.post_created')
           redirect_to member_conversatio_blog_posts_path(@blog)
@@ -53,7 +53,7 @@ class Member::Conversatio::PostsController < Member::BaseController
     respond_to do |wants|
       if @post.update_attributes(params[:post])
         @post.update_attribute(:published_at, nil) unless params[:update_published_at]
-        @post.send("#{params[:state].to_s}!")
+        @post.send("#{params[:state].to_s}!") if @post.aasm_events_for_current_state.map{|e| e.to_s}.include?("#{params[:state]}")
         wants.html do
           flash[:ok]=I18n.t('tog_conversatio.member.posts.post_updated')
           redirect_to member_conversatio_blog_posts_path(@post.blog)
