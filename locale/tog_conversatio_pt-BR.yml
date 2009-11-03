@@ -1,0 +1,143 @@
+pt-BR:
+  interface:
+    member:
+      blogs: Blogs
+    site:
+      blogs: Blogs
+  tog_conversatio:
+    model:
+      states:
+        draft: Rascunho
+        published: Publicado
+      post:
+        metadata: Metadata
+        tags: Tags
+        tags_explanation: (separado por vírgulas)
+        status: Status
+        publish_at: Publicado em
+        content: Conteúdo
+        title: Título
+        body: Mensagem
+    member:
+      blogs:
+        blog_created: Blog criado com sucesso
+        blog_updated: Blog alterado com sucesso
+        blog_removed: Blog apagado com sucesso
+      posts:
+        post_created: Post criado com sucesso
+        post_updated: Post alterado com sucesso
+        post_removed: Post apagado com sucesso    
+      bloggerships:
+        editor_added: Editor adicionado com sucesso
+        user_not_related: O usuário selecionado deve estar relacionado com você
+        editor_deleted: Editor removido
+        author_only: Somente o autor do blog pode fazer isso
+    views:
+      blogs:
+        archive:
+          title: Arquivo
+        index:
+          title: Blogs
+          create_blog: Criar blog
+          not_found: Nenhum blog ainda.
+          created_by: "Criado por "
+          posts: posts
+        show:
+          last_posts: Últimos posts
+          posts_not_found: Não há posts ainda.
+        tag_cloud_blogs:
+          all_tags: Tags em todos os blogs
+        tag_cloud_single_blog:
+          tags_on_blog: Tags em {{blog_title}}
+      posts:
+        comments:
+          comments: Comentários ({{size}})
+          add_comment: Adicionar comentário
+          comment_title: Deixar um comentário em {{post_title}}
+        all_by_tag:
+          title: Posts com as tags {{tag_name}}
+          not_found: Não há posts com a tag selecionada.
+          posted_in: "Postado {{time}} em"
+        by_tag:
+          title: Posts com a tag {{tag}}
+          not_found: Não há posts nesse blog com a tag {{tag}}
+          posts_to_of: Posts {{start}} até {{end}} de {{page}}
+        archives:
+          not_found: Não há posts nesse blog na data especificada.
+          archive_of: Arquivo de
+        list_detail:
+          posted_time_ago_by_author: "Postado há {{time}} atrás por {{author}}"
+        show:
+          posted: "Postado em {{time}}"
+        tags:
+          title: Tags
+          not_found: Nenhuma tag associada
+      member:
+        bloggerships:
+          index:
+            select: Selecionar...
+            friends: Amigos
+            followers: Seguidores
+            followings: Seguindo
+            name: Nome
+            add_editor: Adicionar editor
+            remove: Apagar
+            remove_confirm: Tem certeza de que vai apagar esse editor?
+            editors: Editores
+            blog_editors: "Editores de {{blog}}"
+        blogs:
+          index:
+            title: Seus blogs
+            create_your_blog: Crie seu blog
+            blog_title: Título
+            blog_posts: Posts
+            blog_created_at: Criado em
+            add_post: Adicionar Post
+            add_post_title: Criar novo post nesse blog
+            manage_editors: Gerenciar editores
+            manage_editors_title: Gerenciar editores nesse blog
+            blog: blog
+          new:
+            create_blog: Criar blog
+            title: Título
+            description: Descrição
+          blogs:
+            your_blogs: Seus blogs
+            posts: Posts
+            create_new_blog: Criar novo blog
+          edit:
+            edit_blog: Editar blog
+            title: Título
+            description: Descrição
+            update_blog: Atualizar blog
+          manage:
+            title: "Gerenciar o blog '{{blog_title}}'"
+            edit_blog: Editar blog
+            editors: Editores
+            posts: Posts
+            add_post: Adicionar post
+        posts:
+          index:
+            posts_in_blog: Posts em {{blog_title}}
+            create_post: Criar post
+            create_post_title: Criar um novo post nesse blog
+            title: Título
+            status: Status
+            comments: Comentários
+            created_at: Criado em
+            post: post
+          edit:
+            update_post_in_blog: Atualizar post em {{blog_title}}
+            update_post: Atualizar post
+          new:
+            create_post: Criar post
+            create_post_title: Criar um novo post nesse blog
+            create_post_in_blog: "Criando novo post no blog {{blog_title}}"
+          show:
+            comments_post: Comentários em {{post_title}}
+            author: Autor
+            comment: Comentário
+            created_at: Criado em
+            remove: Apagar
+            remove_confirm: Tem certeza que vai apagar esse comentário?
+            not_found: Sem comentários
