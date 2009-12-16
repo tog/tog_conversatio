@@ -22,13 +22,13 @@ class Post < ActiveRecord::Base
 
   named_scope :published, lambda { |*args| { :conditions => ['published_at <= ?', args.first || DateTime.now], :order => 'published_at DESC' } }
 
-  define_index do
-    indexes :title
-    indexes :body
-    indexes :state
-    
-    #set_property :delta => true
-  end
+#  define_index do
+#    indexes :title
+#    indexes :body
+#    indexes :state
+#    
+#    #set_property :delta => true
+#  end
 
   validates_presence_of :title, :body
 
