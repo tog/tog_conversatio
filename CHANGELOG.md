@@ -1,6 +1,9 @@
 Edge
 ----
 
+* I18nized publication_date(format) method added to post model
+
+
 0.6.0
 ----
 

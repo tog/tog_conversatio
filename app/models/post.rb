@@ -54,6 +54,10 @@ class Post < ActiveRecord::Base
     I18n.l(created_at, :format => format)
   end
   
+  def publication_date(format=:short)
+    I18n.l(published_at, :format => format) if published_at
+  end  
+  
   #def self.site_search(query, search_options = {})
   #  search query, :conditions => {:state=>'published'}
   #end
