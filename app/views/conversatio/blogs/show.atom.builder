@@ -6,7 +6,7 @@ atom_feed(:url => formatted_conversatio_blog_posts_url(@blog, :atom)) do |feed|
     feed.entry(post, :url => conversatio_blog_post_url(post.blog, post)) do |entry|
       entry.title(post.title)
       entry.content(textilize(post.body), :type => 'html')
-
+      entry.updated(post.published_at.strftime("%Y-%m-%dT%H:%M:%SZ")) 
       entry.author do |author|
         author.name(post.user.profile.full_name)
         author.email(post.user.email)
