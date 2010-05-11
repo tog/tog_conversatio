@@ -12,6 +12,15 @@ module Conversatio
       end
       posts
     end
+    
+    def archive_months
+      html = "<ul>"
+      publication_months = @blog.posts.published.map{|p|Date.civil(p.published_at.year, p.published_at.month, 1)}.uniq
+      for month in publication_months
+        html << "<li>#{link_to(I18n.l(month, :format => "%B %Y"), monthly_archives_conversatio_blog_posts_path(@blog, month.year, month.month))}</li>"
+      end
+      html << "</ul>"
+    end    
 
     def archives_menu
       html = "<ul>"
