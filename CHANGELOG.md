@@ -2,8 +2,9 @@ Edge
 ----
 
 * I18nized publication_date(format) method added to post model
-* Add post publication date to atom feed
+* Added post publication date to atom feed
 * New method to get all months with post for a blog (archive_months)
+* Added method published? to post
 
 0.6.0
 ----

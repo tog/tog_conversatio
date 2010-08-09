@@ -49,6 +49,10 @@ class Post < ActiveRecord::Base
   def owner
     user
   end
+  
+  def published?
+    published_at ? published_at <= DateTime.now : false
+  end
 
   def creation_date(format=:short)
     I18n.l(created_at, :format => format)
@@ -56,7 +60,7 @@ class Post < ActiveRecord::Base
   
   def publication_date(format=:short)
     I18n.l(published_at, :format => format) if published_at
-  end  
+  end
   
   #def self.site_search(query, search_options = {})
   #  search query, :conditions => {:state=>'published'}
